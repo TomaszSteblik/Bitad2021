@@ -1,4 +1,5 @@
 ﻿using System;
+using Bitad2021.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,6 +13,7 @@ namespace Bitad2021
         {
             InitializeComponent();
 
+            MainPage = new LoginPage();
             //MainPage = new MainPage();
         }
 

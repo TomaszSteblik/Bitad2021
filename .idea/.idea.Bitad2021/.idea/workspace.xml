@@ -10,21 +10,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb1bb82e-82b3-4fec-8eac-dd79f385b9f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/AppBootstrapper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/Implementations/AgendaServiceRest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/Implementations/UserServiceRest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/Implementations/WorkshopServiceRest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/Interfaces/IAgendaService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/Interfaces/IUserService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/Interfaces/IWorkshopService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/Agenda.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/Speaker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/BitadServiceRest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/IBitadService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/Sponsor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/SponsorRank.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/User.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/Workshop.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/LoginViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LoginPage.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Bitad2021/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Bitad2021/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/App.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/AppBootstrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/AppBootstrapper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Bitad2021.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Bitad2021.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/MainPage.xaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/MainPage.xaml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/Implementations/AgendaServiceRest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/Implementations/UserServiceRest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/Implementations/WorkshopServiceRest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/Interfaces/IAgendaService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/Interfaces/IUserService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/Interfaces/IWorkshopService.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +36,18 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F164DB32-364F-4A01-A496-2FBA11FEBF1A/37/HttpClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F164DB32-364F-4A01-A496-2FBA11FEBF1A/3E/HttpMessageInvoker.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -47,13 +62,10 @@
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/IUserService.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/IWorkshopService.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/Interfaces/IAgendaService.cs" />
-      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/Interfaces/IUserService.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/Interfaces/IWorkshopService.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/Implementations/AgendaServiceRest.cs" />
-      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/Implementations/UserServiceRest.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/Implementations/WorkshopServiceRest.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/AppBootstapper.cs" />
-      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/AppBootstrapper.cs" />
       <option value="$PROJECT_DIR$/Bitad2021.Tests/UnitTest1.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Bitad2021.csproj" />
       <option value="$PROJECT_DIR$/Bitad2021.Tests/Bitad2021.Tests.csproj" />
@@ -61,6 +73,19 @@
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021.Tests/UnitTest1.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021.Tests/Bitad2021.Tests.csproj" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/App.xaml.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LoginPage.xaml.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LoginPage.xaml" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/User.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/Workshop.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/Implementations/UserServiceRest.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/Interfaces/IUserService.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/LoginViewModel.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/AppBootstrapper.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/QrCode.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/Sponsor.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/SponsorRank.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/IBitadService.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/BitadServiceRest.cs" />
     </changedPaths>
   </component>
   <component name="InvalidFacetManager">
@@ -75,6 +100,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -130,7 +157,7 @@
       <workItem from="1624268906622" duration="2975000" />
       <workItem from="1624272100761" duration="976000" />
       <workItem from="1624273157335" duration="429000" />
-      <workItem from="1624274128549" duration="295000" />
+      <workItem from="1624274128549" duration="6159000" />
     </task>
     <servers />
   </component>

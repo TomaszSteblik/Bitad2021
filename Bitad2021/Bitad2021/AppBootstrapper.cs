@@ -1,6 +1,7 @@
-﻿using System.Reflection;
-using Bitad2021.Data.Implementations;
-using Bitad2021.Data.Interfaces;
+﻿using System;
+using System.Net.Http;
+using System.Reflection;
+using Bitad2021.Data;
 using ReactiveUI;
 using Splat;
 
@@ -12,18 +13,18 @@ namespace Bitad2021
         {
             RegisterServices();
             RegisterViewModels();
+            
         }
 
         private void RegisterServices()
         {
-            Locator.CurrentMutable.RegisterConstant<IAgendaService>(new AgendaServiceRest());
-            Locator.CurrentMutable.RegisterConstant<IUserService>(new UserServiceRest());
-            Locator.CurrentMutable.RegisterConstant<IWorkshopService>(new WorkshopServiceRest());
+            Locator.CurrentMutable.RegisterConstant<IBitadService>(new BitadServiceRest());
+            
         }
 
         private void RegisterViewModels()
         {
-            Locator.CurrentMutable.RegisterViewsForViewModels(Assembly.GetAssembly(GetType()));
+            Locator.CurrentMutable.RegisterViewsForViewModels(Assembly.GetExecutingAssembly());
         }
     }
 }
