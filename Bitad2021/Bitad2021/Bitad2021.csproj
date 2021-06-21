@@ -2,6 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -17,15 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Data" />
-      <Folder Include="Models" />
       <Folder Include="ViewModels" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Update="Views\MainPage.xaml.cs">
-        <DependentUpon>MainPage.xaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
+      <Folder Include="Views" />
     </ItemGroup>
 </Project>

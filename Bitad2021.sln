@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bitad2021.Android", "Bitad2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bitad2021.iOS", "Bitad2021\Bitad2021.iOS\Bitad2021.iOS.csproj", "{02B82074-552A-41B3-AA7E-6CBD6ACA5D6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bitad2021.Tests", "Bitad2021\Bitad2021.Tests\Bitad2021.Tests.csproj", "{36E00169-DC24-47C2-959F-DB34E50FE911}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|iPhone = Ad-Hoc|iPhone
@@ -82,5 +84,21 @@ Global
 		{02B82074-552A-41B3-AA7E-6CBD6ACA5D6E}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{02B82074-552A-41B3-AA7E-6CBD6ACA5D6E}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{02B82074-552A-41B3-AA7E-6CBD6ACA5D6E}.Release|iPhoneSimulator.Deploy.0 = Release|iPhoneSimulator
+		{36E00169-DC24-47C2-959F-DB34E50FE911}.Ad-Hoc|iPhone.ActiveCfg = Debug|Any CPU
+		{36E00169-DC24-47C2-959F-DB34E50FE911}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
+		{36E00169-DC24-47C2-959F-DB34E50FE911}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
+		{36E00169-DC24-47C2-959F-DB34E50FE911}.AppStore|iPhone.Build.0 = Debug|Any CPU
+		{36E00169-DC24-47C2-959F-DB34E50FE911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36E00169-DC24-47C2-959F-DB34E50FE911}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36E00169-DC24-47C2-959F-DB34E50FE911}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{36E00169-DC24-47C2-959F-DB34E50FE911}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{36E00169-DC24-47C2-959F-DB34E50FE911}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{36E00169-DC24-47C2-959F-DB34E50FE911}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{36E00169-DC24-47C2-959F-DB34E50FE911}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36E00169-DC24-47C2-959F-DB34E50FE911}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36E00169-DC24-47C2-959F-DB34E50FE911}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{36E00169-DC24-47C2-959F-DB34E50FE911}.Release|iPhone.Build.0 = Release|Any CPU
+		{36E00169-DC24-47C2-959F-DB34E50FE911}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{36E00169-DC24-47C2-959F-DB34E50FE911}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
