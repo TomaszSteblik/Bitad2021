@@ -2,29 +2,38 @@
 using System.Net.Http;
 using System.Reflection;
 using Bitad2021.Data;
+using Bitad2021.ViewModels;
 using ReactiveUI;
+using ReactiveUI.XamForms;
 using Splat;
+using Xamarin.Forms;
 
 namespace Bitad2021
 {
-    public class AppBootstrapper
+    public class AppBootstrapper : IScreen
     {
         public AppBootstrapper()
         {
-            RegisterServices();
-            RegisterViewModels();
+            Router = new RoutingState();
             
-        }
-
-        private void RegisterServices()
-        {
+            Locator.CurrentMutable.RegisterConstant<IScreen>(this);
+            
             Locator.CurrentMutable.RegisterConstant<IBitadService>(new BitadServiceRest());
             
+            Locator.CurrentMutable.RegisterViewsForViewModels(Assembly.GetExecutingAssembly());
+
+            Router.Navigate.Execute(new LoginViewModel());
+
+
         }
 
-        private void RegisterViewModels()
+      
+
+        public RoutingState Router { get; }
+
+        public Page CreateMainPage()
         {
-            Locator.CurrentMutable.RegisterViewsForViewModels(Assembly.GetExecutingAssembly());
+            return new RoutedViewHost();
         }
     }
 }

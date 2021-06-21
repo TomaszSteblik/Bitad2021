@@ -8,7 +8,7 @@ namespace Bitad2021.Data
     public interface IBitadService
     {
         Task<User> Login(string login, string password);
-        Task<User> Register(string login, string password, string email);
+        Task<User> Register(string email, string firstName,string lastName, string username, string password);
         Task<User> GetUser();
 
         Task<IEnumerable<Agenda>> GetAllAgendas();

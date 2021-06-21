@@ -12,8 +12,8 @@ namespace Bitad2021
         public App()
         {
             InitializeComponent();
-
-            MainPage = new LoginPage();
+            var bootstrapper = new AppBootstrapper();
+            MainPage = bootstrapper.CreateMainPage();
             //MainPage = new MainPage();
         }
 

@@ -11,9 +11,9 @@ using Xamarin.Forms.Xaml;
 namespace Bitad2021.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ReactiveContentPage<LoginViewModel>
+    public partial class SettingsPage : ReactiveContentPage<SettingsViewModel>
     {
-        public LoginPage()
+        public SettingsPage()
         {
             InitializeComponent();
         }
