@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Bitad2021.Data;
 using Bitad2021.Models;
+using Bitad2021.Views;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Splat;
+using Xamarin.Forms;
 
 namespace Bitad2021.ViewModels
 {
@@ -36,10 +38,12 @@ namespace Bitad2021.ViewModels
             {
                 
                 var res = await _bitadService.Login(Username, Password);
-                if(res is null)
-                    //TODO:HANDLE ERROR
+                if (res is null)
+                {
+                    //TODO: HANDLE ERROR
                     return;
-                Debug.WriteLine(res.Name);
+                }
+                    
                 TabbedNavigationCommand.Execute(null);
                 
             });

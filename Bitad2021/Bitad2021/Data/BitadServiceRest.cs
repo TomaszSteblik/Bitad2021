@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Bitad2021.Models;
@@ -22,7 +23,9 @@ namespace Bitad2021.Data
             _httpClient = new HttpClient()
             {
                 //TODO: TAKE ADDRESS OUT TO ENV OR SOME JSON
-                BaseAddress = new Uri("http://10.0.2.2:8080"),
+                //BaseAddress = new Uri("http://10.0.2.2:8080")
+                BaseAddress = new Uri("http://192.168.0.110:8080")
+                
             };
 
             Token = "";
@@ -40,10 +43,11 @@ namespace Bitad2021.Data
             var content = new StringContent (json, Encoding.UTF8, "application/json");
 
             var res = await _httpClient.PostAsync("/User/AuthenticateUser", content);
-
+            
+            
             if (!res.IsSuccessStatusCode)
                 return null;
-
+            
             Token = res.Headers.GetValues("authtoken").FirstOrDefault();
 
             var resJson = await res.Content.ReadAsStringAsync();
@@ -84,12 +88,16 @@ namespace Bitad2021.Data
 
         public async Task<IEnumerable<Agenda>> GetAllAgendas()
         {
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
             var res = await _httpClient.GetAsync("/Agenda/GetAgendas");
+            
+            //Token = res.Headers.GetValues("authtoken").FirstOrDefault();
             
             if (!res.IsSuccessStatusCode)
                 return null;
             
             var resJson = await res.Content.ReadAsStringAsync();
+            
 
             return await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<IEnumerable<Agenda>>(resJson));
         }
@@ -102,6 +110,26 @@ namespace Bitad2021.Data
         public async Task<IEnumerable<Workshop>> GetAllWorkshops()
         {
             throw new System.NotImplementedException();
+        }
+
+        public async Task<QrCodeResponse> RedeemQrCode(string qrCode)
+        {
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+            
+            var parameters = new Dictionary<string, string>();
+            parameters["code"] = qrCode;
+            
+            var res = await _httpClient.PostAsync("/QrCodeRedeem/RedeemQrCode",new FormUrlEncodedContent(parameters));
+            
+            Token = res.Headers.GetValues("authtoken").FirstOrDefault();
+            
+            if (!res.IsSuccessStatusCode)
+                return null;
+            
+            var resJson = await res.Content.ReadAsStringAsync();
+            
+
+            return await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<QrCodeResponse>(resJson));
         }
     }
 }

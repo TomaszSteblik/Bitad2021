@@ -9,9 +9,12 @@
     
     
     <ContentPage.Content>
-        <StackLayout Margin="50">
-            <zxing:ZXingScannerView IsScanning="True" />
-        </StackLayout>
+            <Grid>
+                <zxing:ZXingScannerView IsScanning="{Binding IsScanning}" 
+                                        ScanResultCommand="{Binding ScanResultCommand}" 
+                                        Result="{Binding Path=Result,Mode=TwoWay}"
+                                        IsAnalyzing="{Binding IsAnalyzing}"/>
+            </Grid>
     </ContentPage.Content>
     
 </xamForms:ReactiveContentPage>

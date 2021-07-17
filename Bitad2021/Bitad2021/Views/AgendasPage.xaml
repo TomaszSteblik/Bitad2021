@@ -7,7 +7,18 @@
                               x:Class="Bitad2021.Views.AgendasPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Hello Agenda!"></Label>
+            <ListView ItemsSource="{Binding Agendas}">  
+                <ListView.ItemTemplate>  
+                    <DataTemplate>  
+                        <ViewCell>  
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding Picture}"/>  
+                                <Label Text="{Binding Title}"/>  
+                            </StackLayout>  
+                        </ViewCell>  
+                    </DataTemplate>  
+                </ListView.ItemTemplate>  
+            </ListView>  
         </StackLayout>
     </ContentPage.Content>
 </xamForms:ReactiveContentPage>

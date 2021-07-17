@@ -8,8 +8,8 @@
                              x:Class="Bitad2021.Views.TabbedView"
                              NavigationPage.HasNavigationBar="False">
     
-    <views:AgendasPage Title="Agenda"/>
-    <views:QrScannerPage Title="Gra QR"/>
-    <views:SettingsPage Title="Ustawienia"/>
+    <views:AgendasPage Title="Agenda" BindingContext="{Binding AgendasViewModel}"/>
+    <views:QrScannerPage Title="Gra QR" BindingContext="{Binding QrScannerViewModel}"/>
+    <views:SettingsPage Title="Ustawienia" BindingContext="{Binding SettingsViewModel}"/>
 
 </xamForms:ReactiveTabbedPage>

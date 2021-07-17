@@ -16,7 +16,9 @@ namespace Bitad2021.Data
         Task<IEnumerable<Sponsor>> GetAllSponsors();
 
         Task<IEnumerable<Workshop>> GetAllWorkshops();
-        
+
+        Task<QrCodeResponse> RedeemQrCode(string qrCode);
+
         //TODO: REGISTER QRCODE AND LEADERBOARD
     }
 }
