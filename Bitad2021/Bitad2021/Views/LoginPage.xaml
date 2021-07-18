@@ -4,10 +4,12 @@
                               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                               xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
                               xmlns:viewModels="clr-namespace:Bitad2021.ViewModels;assembly=Bitad2021"
+                              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
                               x:Class="Bitad2021.Views.LoginPage"
                               NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout Margin="50">
+            
             <Entry Text="{Binding Username}" Placeholder="Username"/>
             <Entry Text="{Binding Password}" Placeholder="Password"/>
             <Button Text="Login" Command="{Binding LoginCommand}"/>

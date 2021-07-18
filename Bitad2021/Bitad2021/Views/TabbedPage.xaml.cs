@@ -21,21 +21,8 @@ namespace Bitad2021.Views
     {
         public TabbedView()
         {
-            InitializeComponent();
-            this.WhenActivated(disposable =>
-            {
-                this.WhenAnyValue(x => x.CurrentPage).InvokeCommand(new Command(() =>
-                {
-                    if (CurrentPage is QrScannerPage qrScannerPage)
-                    {
-                        qrScannerPage.ViewModel.IsAnalyzing = true;
-                    }
-                    else if (GetPageByIndex(1) is QrScannerPage qrScanner)
-                    {
-                        qrScanner.ViewModel.IsAnalyzing = false;
-                    }
-                })).DisposeWith(disposable);
-            });
+            InitializeComponent(); 
+            Xamarin.Forms.PlatformConfiguration.AndroidSpecific.TabbedPage.SetIsSwipePagingEnabled(this, false);
         }
     }
 }

@@ -23,34 +23,46 @@ namespace Bitad2021.ViewModels
         public bool IsAnalyzing { get; set; }    
         [Reactive] 
         public bool IsScanning { get; set; }
+        [Reactive] 
+        public bool IsAnimationVisible { get; set; }
+
+        public event EventHandler<bool> OnQrResponseReceived;
+        
         
         public QrScannerViewModel(IBitadService bitadService = null)
         {
             IsScanning = true;
             IsAnalyzing = true;
+            IsAnimationVisible = true;
             
             _bitadService = bitadService ?? Locator.Current.GetService<IBitadService>();
 
             
             ScanResultCommand = new Command(async () =>
             {
-                Debug.WriteLine(IsAnalyzing);
 
                 IsAnalyzing = false;
-                
+
                 var response = await _bitadService.RedeemQrCode(Result.Text);
-
-                if (response is null)
+                Device.BeginInvokeOnMainThread(() =>
                 {
-                    //show error message
-                    Debug.WriteLine("ERROR");
-                }
-                else
-                {
-                    //show succes message;
-                    Debug.WriteLine($"{response.QrCode} for {response.Points} points");
-                }
+                    if (response is null)
+                    {
+                        //show error message
+                        OnQrResponseReceived?.Invoke(this, false);
 
+                        Debug.WriteLine("ERROR");
+                    }
+                    else
+                    {
+                        //show succes message;
+                        OnQrResponseReceived?.Invoke(this, true);
+
+                        Debug.WriteLine($"{response.QrCode} for {response.Points} points");
+                    }
+                });
+
+                await Task.Delay(5000);
                 IsAnalyzing = true;
             });
 

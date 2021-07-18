@@ -24,7 +24,7 @@ namespace Bitad2021.Data
             {
                 //TODO: TAKE ADDRESS OUT TO ENV OR SOME JSON
                 //BaseAddress = new Uri("http://10.0.2.2:8080")
-                BaseAddress = new Uri("http://192.168.0.110:8080")
+                BaseAddress = new Uri("http://192.168.0.101:8080")
                 
             };
 

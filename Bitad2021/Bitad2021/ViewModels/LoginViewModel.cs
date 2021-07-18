@@ -19,6 +19,10 @@ namespace Bitad2021.ViewModels
 
         public string UrlPathSegment { get; } = "Login Screen";
         public IScreen HostScreen { get; }
+
+        [Reactive]
+        public bool IsVisible { get; set; }
+        
         
         [Reactive]
         public string Username { get; set; }
