@@ -18,22 +18,19 @@ namespace Bitad2021.ViewModels
         private readonly IBitadService _bitadService;
 
         [Reactive]
-        public IObservableCollection<Agenda> Agendas { get; set; }
+        public WorkshopsViewModel WorkshopsViewModel { get; set; }
+        
         [Reactive]
-        public string Count { get; set; } = "dsa";
-        public ReactiveCommand<Unit,Unit> Command { get; set; }
+        public LecturesViewModel LecturesViewModel { get; set; }
         
         public AgendasViewModel(IBitadService bitadService = null)
         {
             _bitadService = bitadService ?? Locator.Current.GetService<IBitadService>();
-            Agendas = new ObservableCollectionExtended<Agenda>();
-            Command = ReactiveCommand.CreateFromTask(async () =>
-            {
-                Agendas.AddRange(await _bitadService.GetAllAgendas());
-                Count = Agendas.Count.ToString();
-            });
-            Command.ThrownExceptions.Subscribe(ex => Debug.WriteLine(((Exception) ex).Message));
-            Command.Execute();
+
+            LecturesViewModel = new LecturesViewModel();
+
+            WorkshopsViewModel = new WorkshopsViewModel();
+
         }
     }
 }

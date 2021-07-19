@@ -109,7 +109,18 @@ namespace Bitad2021.Data
 
         public async Task<IEnumerable<Workshop>> GetAllWorkshops()
         {
-            throw new System.NotImplementedException();
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+            var res = await _httpClient.GetAsync("/Agenda/GetWorkshops");
+            
+            //Token = res.Headers.GetValues("authtoken").FirstOrDefault();
+            
+            if (!res.IsSuccessStatusCode)
+                return null;
+            
+            var resJson = await res.Content.ReadAsStringAsync();
+            
+
+            return await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<IEnumerable<Workshop>>(resJson));
         }
 
         public async Task<QrCodeResponse> RedeemQrCode(string qrCode)

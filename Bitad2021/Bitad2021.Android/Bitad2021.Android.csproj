@@ -88,5 +88,18 @@
       <AndroidAsset Include="Assets\fail_cross.json" />
       <AndroidAsset Include="Assets\star.json" />
     </ItemGroup>
+    <ItemGroup>
+      <AndroidResource Include="Resources\drawable-hdpi\settings_icon.png" />
+      <AndroidResource Include="Resources\drawable-ldpi\settings_icon.png" />
+      <AndroidResource Include="Resources\drawable-xhdpi\settings_icon.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <AndroidResource Include="Resources\drawable-hdpi\agenda_icon.png" />
+      <AndroidResource Include="Resources\drawable-hdpi\qr_icon.png" />
+      <AndroidResource Include="Resources\drawable-ldpi\agenda_icon.png" />
+      <AndroidResource Include="Resources\drawable-ldpi\qr_icon.png" />
+      <AndroidResource Include="Resources\drawable-xhdpi\agenda_icon.png" />
+      <AndroidResource Include="Resources\drawable-xhdpi\qr_icon.png" />
+    </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

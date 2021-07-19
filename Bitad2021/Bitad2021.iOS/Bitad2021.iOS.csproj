@@ -120,7 +120,16 @@
         </ProjectReference>
     </ItemGroup>
     <ItemGroup>
+      <BundleResource Include="Resources\agenda_icon.png" />
+      <BundleResource Include="Resources\agenda_icon@2x.png" />
+      <BundleResource Include="Resources\agenda_icon@3x.png" />
       <BundleResource Include="Resources\fail_cross.json" />
+      <BundleResource Include="Resources\qr_icon.png" />
+      <BundleResource Include="Resources\qr_icon@2x.png" />
+      <BundleResource Include="Resources\qr_icon@3x.png" />
+      <BundleResource Include="Resources\settings_icon.png" />
+      <BundleResource Include="Resources\settings_icon@2x.png" />
+      <BundleResource Include="Resources\settings_icon@3x.png" />
       <BundleResource Include="Resources\star.json" />
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

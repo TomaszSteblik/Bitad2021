@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xamForms:ReactiveContentPage x:TypeArguments="viewModels:WorkshopsViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                              xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
+                              xmlns:viewModels="clr-namespace:Bitad2021.ViewModels;assembly=Bitad2021"
+                              x:Class="Bitad2021.Views.WorkshopsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Hello, world!"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</xamForms:ReactiveContentPage>
