@@ -9,6 +9,7 @@ using Bitad2021.Views;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Splat;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Bitad2021.ViewModels
@@ -48,6 +49,9 @@ namespace Bitad2021.ViewModels
                     return;
                 }
                     
+                Preferences.Set("password", Password);
+                Preferences.Set("username", Username);
+                
                 TabbedNavigationCommand.Execute(null);
                 
             });

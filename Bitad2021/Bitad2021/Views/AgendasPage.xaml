@@ -5,7 +5,9 @@
                               xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
                               xmlns:viewModels="clr-namespace:Bitad2021.ViewModels;assembly=Bitad2021"
                               xmlns:views="clr-namespace:Bitad2021.Views;assembly=Bitad2021"
-                              x:Class="Bitad2021.Views.AgendasPage">
+                              xmlns:androidSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+                              x:Class="Bitad2021.Views.AgendasPage"
+                              androidSpecific:TabbedPage.ToolbarPlacement="Bottom">
     
     <views:LecturesPage Title="Wykłady" BindingContext="{Binding LecturesViewModel}"/>
     <views:WorkshopsPage Title="Warsztaty" BindingContext="{Binding WorkshopsViewModel}"/>

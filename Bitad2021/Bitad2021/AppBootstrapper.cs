@@ -7,6 +7,7 @@ using Bitad2021.Views;
 using ReactiveUI;
 using ReactiveUI.XamForms;
 using Splat;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Bitad2021
@@ -18,14 +19,32 @@ namespace Bitad2021
             Router = new RoutingState();
             
             Locator.CurrentMutable.RegisterConstant<IScreen>(this);
-            
-            Locator.CurrentMutable.RegisterConstant<IBitadService>(new BitadServiceRest());
+            var bitadService = new BitadServiceRest();
+            Locator.CurrentMutable.RegisterConstant<IBitadService>(bitadService);
             
             Locator.CurrentMutable.RegisterViewsForViewModels(Assembly.GetExecutingAssembly());
+            //TODO: Splash screen for ios
+            var hasPassword = Preferences.ContainsKey("password");
+            var hasUsername = Preferences.ContainsKey("username");
+            if (hasPassword && hasUsername)
+            {
+                var password =  Preferences.Get("password","");
+                var username =  Preferences.Get("username","");
 
-            Router.Navigate.Execute(new LoginViewModel());
-
-
+                var res = bitadService.LoginSync(username, password);
+                if(res is null)
+                    Router.Navigate.Execute(new LoginViewModel());
+                else
+                    Router.NavigateAndReset.Execute(new TabbedViewModel());
+            }
+            else
+            {
+                Router.NavigateAndReset.Execute(new LoginViewModel());
+            }
+            
+            
+            
+            
         }
         
         public Page CreateMainPage()

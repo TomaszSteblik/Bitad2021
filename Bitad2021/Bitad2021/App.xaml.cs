@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IdentityModel.Tokens.Jwt;
 using Bitad2021.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -14,6 +15,7 @@ namespace Bitad2021
             InitializeComponent();
             var bootstrapper = new AppBootstrapper();
             MainPage = bootstrapper.CreateMainPage();
+         
             //MainPage = new MainPage();
         }
 

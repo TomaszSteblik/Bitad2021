@@ -24,7 +24,8 @@ namespace Bitad2021.Data
             {
                 //TODO: TAKE ADDRESS OUT TO ENV OR SOME JSON
                 //BaseAddress = new Uri("http://10.0.2.2:8080")
-                BaseAddress = new Uri("http://192.168.0.101:8080")
+                //BaseAddress = new Uri("http://192.168.0.101:8080")
+                BaseAddress = new Uri("http://212.106.184.93:8080")
                 
             };
 
@@ -56,7 +57,31 @@ namespace Bitad2021.Data
 
         }
 
-        public async Task<User> Register(string email, string firstName,string lastName, string username, string password)
+        public User LoginSync(string username, string password)
+        {
+            var json = JsonConvert.SerializeObject(new
+            {
+                username,
+                password
+            });
+
+            var content = new StringContent (json, Encoding.UTF8, "application/json");
+
+            var res = _httpClient.PostAsync("/User/AuthenticateUser", content).Result;
+            
+            
+            if (!res.IsSuccessStatusCode)
+                return null;
+            
+            Token = res.Headers.GetValues("authtoken").FirstOrDefault();
+
+            var resJson = res.Content.ReadAsStringAsync().Result;
+            
+            return JsonConvert.DeserializeObject<User>(resJson);
+        }
+        
+
+        public async Task<User> Register(string email, string firstName,string lastName, string username, string password, ShirtSize shirtSize)
         {
             var json = await Task.Factory.StartNew(() => JsonConvert.SerializeObject(new
             {
@@ -64,7 +89,8 @@ namespace Bitad2021.Data
                 firstName,
                 lastName,
                 username,
-                password
+                password,
+                shirtSize
             }));
             
 

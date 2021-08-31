@@ -3,16 +3,41 @@
 <xamForms:ReactiveContentPage x:TypeArguments="viewModels:LecturesViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
                               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                               xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
-                              xmlns:viewModels="clr-namespace:Bitad2021.ViewModels;assembly=Bitad2021"
+                              xmlns:viewModels="clr-namespace:Bitad2021.ViewModels;assembly=Bitad2021" xmlns:Models="clr-namespace:Bitad2021.Models"
                               x:Class="Bitad2021.Views.LecturesPage">
     <ContentPage.Content>
         <StackLayout>
-            <ListView ItemsSource="{Binding Lectures}">  
+            <ListView ItemsSource="{Binding Lectures}" x:Name="ListView" 
+                      SelectedItem="{Binding SelectedItem,Mode=TwoWay}"                   
+                      HasUnevenRows="True"
+                      SeparatorVisibility="None"
+                      CachingStrategy="RecycleElement"
+                      SelectionMode="{Binding SelectionMode,Mode=TwoWay}">  
                 <ListView.ItemTemplate>  
-                    <DataTemplate>  
+                    <DataTemplate x:DataType="Models:Agenda">  
                         <ViewCell>  
-                            <StackLayout Orientation="Horizontal">
+                            <StackLayout Padding="0"
+                                         Orientation="Horizontal">
                                 <Label Text="{Binding Title}"/>  
+                                <Frame x:Name="FrameExtContainer" 
+                                       Padding="1,1,1,1" 
+                                       HasShadow="False" 
+                                       HorizontalOptions="FillAndExpand" 
+                                       CornerRadius="100" BorderColor="Indigo" 
+                                       BackgroundColor="Indigo" >
+                                     <Frame x:Name="FrameIntContainer" 
+                                            Padding="0" 
+                                            HasShadow="False" HorizontalOptions="FillAndExpand" 
+                                            CornerRadius="100" BorderColor="Indigo" 
+                                            BackgroundColor="Indigo"
+                                            MinimumHeightRequest="120">
+                                         <Image Source="{Binding Speaker.Picture}"
+                                                HorizontalOptions="Center"
+                                                VerticalOptions="Center"
+                                                Aspect="AspectFill"/>
+                                    </Frame> 
+                                </Frame>
+                                
                             </StackLayout>  
                         </ViewCell>  
                     </DataTemplate>  

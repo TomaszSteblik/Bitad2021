@@ -1,6 +1,11 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Windows.Input;
 using Bitad2021.Data;
+using Bitad2021.Models;
 using ReactiveUI;
 using Splat;
 
@@ -18,6 +23,8 @@ namespace Bitad2021.ViewModels
         public string Email { get; set; }
         public string Username { get; set; }
         public ICommand RegisterCommand { get; set; }
+        public ShirtSize SelectedShirtSize { get; set; }
+        public IEnumerable ShirtSizes => Enum.GetValues(typeof(ShirtSize)).Cast<ShirtSize>();
 
         
         
@@ -26,10 +33,10 @@ namespace Bitad2021.ViewModels
         {
             _bitadService = bitadService ?? Locator.Current.GetService<IBitadService>();
             HostScreen = screen ?? Locator.Current.GetService<IScreen>();
-
+            
             RegisterCommand = ReactiveCommand.CreateFromTask(async () =>
             {
-                var res = await _bitadService.Register(Email,FirstName,LastName,Username,Password);
+                var res = await _bitadService.Register(Email,FirstName,LastName,Username,Password,SelectedShirtSize);
                 
                 if(res is null)
                     //TODO:HANDLE ERROR

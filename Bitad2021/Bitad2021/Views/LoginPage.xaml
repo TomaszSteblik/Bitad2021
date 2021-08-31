@@ -14,6 +14,8 @@
             <Entry Text="{Binding Password}" Placeholder="Password"/>
             <Button Text="Login" Command="{Binding LoginCommand}"/>
             <Button Text="Register" Command="{Binding RegisterNavigationCommand}"/>
+            
+            
         </StackLayout>
     </ContentPage.Content>
 </xamForms:ReactiveContentPage>
