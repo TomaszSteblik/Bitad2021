@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 using Bitad2021.Views;
 using Xamarin.Forms;
@@ -13,6 +14,7 @@ namespace Bitad2021
         public App()
         {
             InitializeComponent();
+            CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
             var bootstrapper = new AppBootstrapper();
             MainPage = bootstrapper.CreateMainPage();
          

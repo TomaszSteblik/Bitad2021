@@ -81,7 +81,7 @@ namespace Bitad2021.Data
         }
         
 
-        public async Task<User> Register(string email, string firstName,string lastName, string username, string password, ShirtSize shirtSize)
+        public async Task<User> Register(string email, string firstName,string lastName, string username, string password)
         {
             var json = await Task.Factory.StartNew(() => JsonConvert.SerializeObject(new
             {
@@ -89,8 +89,7 @@ namespace Bitad2021.Data
                 firstName,
                 lastName,
                 username,
-                password,
-                shirtSize
+                password
             }));
             
 
@@ -136,7 +135,7 @@ namespace Bitad2021.Data
         public async Task<IEnumerable<Workshop>> GetAllWorkshops()
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
-            var res = await _httpClient.GetAsync("/Agenda/GetWorkshops");
+            var res = await _httpClient.GetAsync("/Workshop/GetWorkshops");
             
             //Token = res.Headers.GetValues("authtoken").FirstOrDefault();
             
@@ -167,6 +166,18 @@ namespace Bitad2021.Data
             
 
             return await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<QrCodeResponse>(resJson));
+        }
+
+        public async Task<bool> SelectWorkshop(string workshopCode)
+        {
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+            
+            var parameters = new Dictionary<string, string>();
+            parameters["workshopCode"] = workshopCode;
+            
+            var response = await _httpClient.PutAsync("/User/SelectWorkshop",new FormUrlEncodedContent(parameters));
+            Token = response.Headers.GetValues("authtoken").FirstOrDefault();
+            return response.IsSuccessStatusCode;
         }
     }
 }

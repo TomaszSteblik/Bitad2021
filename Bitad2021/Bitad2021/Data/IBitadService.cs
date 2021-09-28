@@ -9,7 +9,7 @@ namespace Bitad2021.Data
     {
         Task<User> Login(string login, string password);
         User LoginSync(string username, string password);
-        Task<User> Register(string email, string firstName,string lastName, string username, string password, ShirtSize shirtSize);
+        Task<User> Register(string email, string firstName,string lastName, string username, string password);
         Task<User> GetUser();
 
         Task<IEnumerable<Agenda>> GetAllAgendas();
@@ -19,6 +19,8 @@ namespace Bitad2021.Data
         Task<IEnumerable<Workshop>> GetAllWorkshops();
 
         Task<QrCodeResponse> RedeemQrCode(string qrCode);
+
+        Task<bool> SelectWorkshop(string workshopCode);
 
         //TODO: REGISTER QRCODE AND LEADERBOARD
     }

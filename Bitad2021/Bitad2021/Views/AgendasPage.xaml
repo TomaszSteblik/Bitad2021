@@ -9,7 +9,9 @@
                               x:Class="Bitad2021.Views.AgendasPage"
                               androidSpecific:TabbedPage.ToolbarPlacement="Bottom">
     
-    <views:LecturesPage Title="Wykłady" BindingContext="{Binding LecturesViewModel}"/>
-    <views:WorkshopsPage Title="Warsztaty" BindingContext="{Binding WorkshopsViewModel}"/>
+    <views:LecturesPage Title="Wykłady" BindingContext="{Binding LecturesViewModel}"
+                        IconImageSource="agenda_icon.png"/>
+    <views:WorkshopsPage Title="Warsztaty" BindingContext="{Binding WorkshopsViewModel}"
+                         IconImageSource="agenda_icon.png"/>
     
 </xamForms:ReactiveTabbedPage>

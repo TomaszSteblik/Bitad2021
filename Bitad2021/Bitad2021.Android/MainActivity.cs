@@ -27,7 +27,7 @@ namespace Bitad2021.Android
             //TODO: Delete statusbar bg on ios and andriod / set it to black or whatever main theme is
             //here is the code to change color
             //Window?.SetStatusBarColor(Color.Argb(255,51,51,51));
-            
+
             LoadApplication(new App());
             
             

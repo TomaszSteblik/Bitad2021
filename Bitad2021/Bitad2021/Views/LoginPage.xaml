@@ -8,14 +8,22 @@
                               x:Class="Bitad2021.Views.LoginPage"
                               NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
+        
         <StackLayout Margin="50">
-            
-            <Entry Text="{Binding Username}" Placeholder="Username"/>
-            <Entry Text="{Binding Password}" Placeholder="Password"/>
-            <Button Text="Login" Command="{Binding LoginCommand}"/>
-            <Button Text="Register" Command="{Binding RegisterNavigationCommand}"/>
+            <Image Source="splash_logo.png"></Image>
+            <Entry Text="{Binding Username}" Placeholder="Login"
+                   Margin="60,0,60,0"/>
+            <Entry Text="{Binding Password}" Placeholder="Hasło"
+                   Margin="60,0,60,0"/>
+            <Button Text="Zaloguj się" Command="{Binding LoginCommand}"
+                    Style="{StaticResource RoundButtonWithBorder}"
+                    Margin="60,0,60,0"/>
+            <Button Text="Rejestracja" Command="{Binding RegisterNavigationCommand}"
+                    Style="{StaticResource RoundButtonWithBorder}"
+                    Margin="60,0,60,0"/>
             
             
         </StackLayout>
+        
     </ContentPage.Content>
 </xamForms:ReactiveContentPage>

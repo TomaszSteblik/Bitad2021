@@ -23,12 +23,7 @@ namespace Bitad2021.ViewModels
         public string Email { get; set; }
         public string Username { get; set; }
         public ICommand RegisterCommand { get; set; }
-        public ShirtSize SelectedShirtSize { get; set; }
-        public IEnumerable ShirtSizes => Enum.GetValues(typeof(ShirtSize)).Cast<ShirtSize>();
-
         
-        
-
         public RegisterViewModel(IBitadService bitadService = null, IScreen screen = null)
         {
             _bitadService = bitadService ?? Locator.Current.GetService<IBitadService>();
@@ -36,7 +31,7 @@ namespace Bitad2021.ViewModels
             
             RegisterCommand = ReactiveCommand.CreateFromTask(async () =>
             {
-                var res = await _bitadService.Register(Email,FirstName,LastName,Username,Password,SelectedShirtSize);
+                var res = await _bitadService.Register(Email,FirstName,LastName,Username,Password);
                 
                 if(res is null)
                     //TODO:HANDLE ERROR

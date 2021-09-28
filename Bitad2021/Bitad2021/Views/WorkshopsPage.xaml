@@ -4,12 +4,64 @@
                               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                               xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
                               xmlns:viewModels="clr-namespace:Bitad2021.ViewModels;assembly=Bitad2021"
+                              xmlns:models="clr-namespace:Bitad2021.Models;assembly=Bitad2021"
                               x:Class="Bitad2021.Views.WorkshopsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Hello, world!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
+            <ListView ItemsSource="{Binding Workshops}" x:Name="ListView" 
+                      SelectedItem="{Binding SelectedItem,Mode=TwoWay}"                   
+                      HasUnevenRows="True"
+                      SeparatorVisibility="None"
+                      CachingStrategy="RecycleElement"
+                      SelectionMode="{Binding SelectionMode,Mode=TwoWay}"
+                      Margin="0 ,10,0,10">
+                <ListView.ItemTemplate>  
+                    <DataTemplate x:DataType="models:Workshop">  
+                        <ViewCell>
+                            <Frame HasShadow="True"
+                                       BackgroundColor="White"
+                                       Margin="20 ,10, 20, 10" 
+                                       Padding="20,20,20,20">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="55" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="80"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" 
+                                           Text="{Binding Room}" />
+                                    <Label Grid.Row="0" Grid.Column="1">
+                                        <Label.Text>
+                                            <MultiBinding StringFormat="{}{0:HH:mm} - {1:HH:mm}">
+                                                <Binding Path="Start"/>
+                                                <Binding Path="End"/>
+                                            </MultiBinding>
+                                        </Label.Text>
+                                    </Label>
+                                    <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                                           Text="{Binding Title}" 
+                                           FontAttributes="Bold"
+                                           TextColor="#333"/>  
+                                    
+                                    <Frame Grid.Row="0" Grid.Column="2" Grid.RowSpan="2"
+                                            Padding="0" 
+                                            CornerRadius="100">
+                                        <Image Source="{Binding Speaker.Picture}"
+                                               HorizontalOptions="FillAndExpand"
+                                               VerticalOptions="FillAndExpand"
+                                               Aspect="AspectFill"/>
+                                    </Frame> 
+
+                                </Grid>
+                            </Frame>
+                        </ViewCell>  
+                    </DataTemplate>  
+                </ListView.ItemTemplate>  
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </xamForms:ReactiveContentPage>

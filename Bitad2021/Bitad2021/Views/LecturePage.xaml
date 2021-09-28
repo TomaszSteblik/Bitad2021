@@ -7,8 +7,71 @@
                               x:Class="Bitad2021.Views.LecturePage"
                               NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding Lecture.Title}"/>
-        </StackLayout>
+        <ScrollView>
+            <Frame HasShadow="True"
+                   Margin="10">
+                <StackLayout>
+                
+                    <Label Text="{Binding Lecture.Title}"
+                           FontAttributes="Bold"
+                           FontSize="Title"
+                           TextColor="#333"/>
+                    
+                    <StackLayout Spacing="0"
+                                 HorizontalOptions="Center">
+                        <Label FontSize="Subtitle"
+                               HorizontalTextAlignment="Center">
+                            <Label.Text>
+                                <MultiBinding StringFormat="{}{0:HH:mm} - {1:HH:mm}">
+                                    <Binding Path="Lecture.Start"/>
+                                    <Binding Path="Lecture.End"/>
+                                </MultiBinding>
+                            </Label.Text>
+                        </Label>
+                        <Label Text="{Binding Lecture.Room}" FontSize="Subtitle" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                    
+                    <Label Text="{Binding Lecture.Description}"
+                           FontSize="Body"
+                           TextColor="#333"
+                           LineBreakMode="WordWrap"/>
+                    
+                    
+                    <StackLayout BindingContext="{Binding Lecture.Speaker}"
+                                 Margin="10,20,10,0">
+                        <Grid HeightRequest="120" Margin="0,0,0,10" HorizontalOptions="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Frame Grid.Column="0" Padding="0"
+                                   HasShadow="False" 
+                                   CornerRadius="60">
+                                <Image Source="{Binding Picture}"
+                                       HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="FillAndExpand"
+                                       Aspect="AspectFill"/>
+                            </Frame>
+                            <StackLayout Grid.Column="1" Margin="20,10,10,10"
+                                         Spacing="0">
+                                <Label Text="{Binding Name}" 
+                                       FontSize="Medium"
+                                       TextColor="#333"/>
+                                <Label Text="{Binding Company,StringFormat='Firma: {0}'}"/>
+                                <Label Text="{Binding Website,StringFormat='Web: {0}'}"/>
+                                <Label Text="{Binding WebsiteLink,StringFormat='Link: {0}'}"/>
+                            </StackLayout>
+                            
+                        </Grid>
+                        
+                        
+                        <Label Text="{Binding Description}" 
+                               TextColor="#333" 
+                               FontSize="Body"/>
+                        
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </ScrollView>
     </ContentPage.Content>
 </xamForms:ReactiveContentPage>

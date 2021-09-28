@@ -12,33 +12,50 @@
                       HasUnevenRows="True"
                       SeparatorVisibility="None"
                       CachingStrategy="RecycleElement"
-                      SelectionMode="{Binding SelectionMode,Mode=TwoWay}">  
+                      SelectionMode="{Binding SelectionMode,Mode=TwoWay}"
+                      Margin="0 ,10,0,10">  
                 <ListView.ItemTemplate>  
                     <DataTemplate x:DataType="Models:Agenda">  
-                        <ViewCell>  
-                            <StackLayout Padding="0"
-                                         Orientation="Horizontal">
-                                <Label Text="{Binding Title}"/>  
-                                <Frame x:Name="FrameExtContainer" 
-                                       Padding="1,1,1,1" 
-                                       HasShadow="False" 
-                                       HorizontalOptions="FillAndExpand" 
-                                       CornerRadius="100" BorderColor="Indigo" 
-                                       BackgroundColor="Indigo" >
-                                     <Frame x:Name="FrameIntContainer" 
-                                            Padding="0" 
-                                            HasShadow="False" HorizontalOptions="FillAndExpand" 
-                                            CornerRadius="100" BorderColor="Indigo" 
-                                            BackgroundColor="Indigo"
-                                            MinimumHeightRequest="120">
-                                         <Image Source="{Binding Speaker.Picture}"
-                                                HorizontalOptions="Center"
-                                                VerticalOptions="Center"
-                                                Aspect="AspectFill"/>
+                        <ViewCell>
+                            <Frame HasShadow="True"
+                                       BackgroundColor="White"
+                                       Margin="20 ,10, 20, 10" 
+                                       Padding="20,20,20,20">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="55" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="80"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" 
+                                           Text="{Binding Room}" />
+                                    <Label Grid.Row="0" Grid.Column="1">
+                                        <Label.Text>
+                                            <MultiBinding StringFormat="{}{0:HH:mm} - {1:HH:mm}">
+                                                <Binding Path="Start"/>
+                                                <Binding Path="End"/>
+                                            </MultiBinding>
+                                        </Label.Text>
+                                    </Label>
+                                    <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                                           Text="{Binding Title}" 
+                                           FontAttributes="Bold"
+                                           TextColor="#333"/>  
+
+                                    <Frame Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" 
+                                           Padding="0" 
+                                           CornerRadius="100">
+                                        <Image Source="{Binding Speaker.Picture}"
+                                               HorizontalOptions="FillAndExpand"
+                                               VerticalOptions="FillAndExpand"
+                                               Aspect="AspectFill"/>
                                     </Frame> 
-                                </Frame>
-                                
-                            </StackLayout>  
+                                </Grid>
+                            </Frame>
                         </ViewCell>  
                     </DataTemplate>  
                 </ListView.ItemTemplate>  

@@ -22,8 +22,7 @@ namespace Bitad2021.Android
         protected override void OnResume()
         {
             base.OnResume();
-            Task startupWork = new Task(() => { SimulateStartup(); });
-            startupWork.Start();
+            StartActivity(new Intent(Application.Context, typeof (MainActivity)));
         }
 
         // Prevent the back button from canceling the startup process

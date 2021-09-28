@@ -24,6 +24,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controls" />
+      <None Remove="Fonts\PTSans-Bold.ttf" />
+      <None Remove="Fonts\PTSans-BoldItalic.ttf" />
+      <None Remove="Fonts\PTSans-Italic.ttf" />
+      <None Remove="Fonts\PTSans-Regular.ttf" />
     </ItemGroup>
 </Project>

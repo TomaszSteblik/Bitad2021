@@ -1,0 +1,14 @@
+﻿<forms:ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:forms="http://xamarin.com/schemas/2014/forms">
+
+    <forms:Style x:Key="RoundButtonWithBorder" TargetType="{x:Type forms:Button}">
+        <forms:Setter Property="BackgroundColor" Value="White" />
+        <forms:Setter Property="BorderColor" Value="#333" />
+        <forms:Setter Property="CornerRadius" Value="15" />
+        <forms:Setter Property="BorderWidth" Value="2" />
+        <forms:Setter Property="BorderWidth" Value="2" />
+        <forms:Setter Property="TextColor" Value="#333" />
+    </forms:Style>
+</forms:ResourceDictionary>
