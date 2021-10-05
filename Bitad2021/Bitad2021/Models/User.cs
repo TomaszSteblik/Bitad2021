@@ -6,5 +6,6 @@
         public string Email { get; set; }
         public int CurrentScore { get; set; }
         public Workshop Workshop { get; set; }
+        public string AttendanceCode { get; set; }
     }
 }

@@ -26,7 +26,7 @@ namespace Bitad2021.Android
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             //TODO: Delete statusbar bg on ios and andriod / set it to black or whatever main theme is
             //here is the code to change color
-            //Window?.SetStatusBarColor(Color.Argb(255,51,51,51));
+            Window?.SetStatusBarColor(Color.Argb(0,255,255,255));
 
             LoadApplication(new App());
             

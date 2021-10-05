@@ -17,7 +17,6 @@ namespace Bitad2021
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
             var bootstrapper = new AppBootstrapper();
             MainPage = bootstrapper.CreateMainPage();
-         
             //MainPage = new MainPage();
         }
 

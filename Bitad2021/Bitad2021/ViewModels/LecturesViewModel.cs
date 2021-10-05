@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Reactive;
+using System.Reactive.Linq;
 using System.Threading;
 using Bitad2021.Data;
 using Bitad2021.Models;
@@ -40,9 +41,16 @@ namespace Bitad2021.ViewModels
             {
                 Lectures.AddRange(await _bitadService.GetAllAgendas());
             });
-            
+
+            SelectedItem = new Agenda();
+
+            var canExecute = this.WhenAnyValue(model => model.SelectedItem.Description, model => model.SelectedItem.Description,
+                (s, s1) => !string.IsNullOrEmpty(s));
+
             ViewLectureCommand = ReactiveCommand.CreateFromObservable(() =>
             {
+
+                
                 var agenda = new Agenda()
                 {
                     End = DateTime.FromOADate(SelectedItem.End.ToOADate()),
@@ -60,15 +68,18 @@ namespace Bitad2021.ViewModels
                     Title = SelectedItem.Title,
                     Description = SelectedItem.Description
                 };
-                // Selection mode is set back to single in LecturesPage.xaml.cs in OnActivated()
-                // Setting it here to None automatically deselects all items if anything was selected
+                
                 SelectionMode = ListViewSelectionMode.None;
+                SelectionMode = ListViewSelectionMode.Single;
+                
+                if (agenda.Description is null)
+                    return null;
 
                 return  _hostScreen.Router.Navigate.Execute(new LectureViewModel(agenda));
             });
 
             ViewLectureCommand.ThrownExceptions.Subscribe(ex => Debug.WriteLine(ex.Message));
-
+      
             LoadDataCommand.Execute();
         }
     }

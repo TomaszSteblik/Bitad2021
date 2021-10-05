@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xamForms:ReactiveContentPage x:TypeArguments="viewModels:LectureViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
+<xamForms:ReactiveContentPage x:TypeArguments="viewModels:SpeakerViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
                               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                               xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
                               xmlns:viewModels="clr-namespace:Bitad2021.ViewModels;assembly=Bitad2021"
-                              x:Class="Bitad2021.Views.LecturePage"
+                              x:Class="Bitad2021.Views.SpeakerPage"
                               NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <ScrollView>
@@ -21,52 +21,38 @@
                                HasShadow="False" 
                                CornerRadius="60"
                                HeightRequest="120">
-                            <Image Source="{Binding Lecture.Speaker.Picture}"
+                            <Image Source="{Binding Speaker.Picture}"
                                    HorizontalOptions="FillAndExpand"
                                    VerticalOptions="FillAndExpand"
                                    Aspect="AspectFill"/>
                         </Frame>
-                        <Image Grid.Column="1" 
-                               Margin="85,85,0,0"
-                               Source="info_icon.png">
-                            <Image.GestureRecognizers>
-                                <TapGestureRecognizer
-                                    Command="{Binding ViewSpeakerCommand}"
-                                    NumberOfTapsRequired="1"/>
-                            </Image.GestureRecognizers>
-                        </Image>
                     </Grid>
                     
-                
-                    <Label Text="{Binding Lecture.Title}"
+                    <Label Text="{Binding Speaker.Name}"
                            FontAttributes="Bold"
                            FontSize="Title"
                            TextColor="#333"
-                           HorizontalOptions="CenterAndExpand"/>
+                           HorizontalOptions="Center"/>
                     
-                    <StackLayout Spacing="0"
-                                 HorizontalOptions="Center">
-                        <Label FontSize="Subtitle"
-                               HorizontalTextAlignment="Center">
-                            <Label.Text>
-                                <MultiBinding StringFormat="{}{0:HH:mm} - {1:HH:mm}">
-                                    <Binding Path="Lecture.Start"/>
-                                    <Binding Path="Lecture.End"/>
-                                </MultiBinding>
-                            </Label.Text>
-                        </Label>
-                        <Label Text="{Binding Lecture.Room}" FontSize="Subtitle" HorizontalTextAlignment="Center"/>
-                    </StackLayout>
+                    <Label Text="{Binding Speaker.Company}"
+                           FontAttributes="Bold"
+                           FontSize="Subtitle"
+                           TextColor="#333"
+                           HorizontalOptions="Center"/>
+                    <!--TODO: Dodać tutaj hiperłącze -->
+                    <Label Text="{Binding Speaker.Website}"
+                           FontAttributes="Italic"
+                           FontSize="Subtitle"
+                           TextColor="#333"
+                           HorizontalOptions="Center"/>
                     
-                    <Label Text="{Binding Lecture.Description}"
+                    <Label Text="{Binding Speaker.Description}"
                            FontSize="Body"
                            TextColor="#333"
                            LineBreakMode="WordWrap"/>
-                    
-                    
-                   
                 </StackLayout>
             </Frame>
         </ScrollView>
+        
     </ContentPage.Content>
 </xamForms:ReactiveContentPage>

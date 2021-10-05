@@ -12,6 +12,7 @@
                       HasUnevenRows="True"
                       SeparatorVisibility="None"
                       CachingStrategy="RecycleElement"
+                      ItemSelected="ListView_OnItemSelected"
                       SelectionMode="{Binding SelectionMode,Mode=TwoWay}"
                       Margin="0 ,10,0,10">  
                 <ListView.ItemTemplate>  
@@ -48,7 +49,8 @@
 
                                     <Frame Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" 
                                            Padding="0" 
-                                           CornerRadius="100">
+                                           CornerRadius="100"
+                                           HasShadow="False">
                                         <Image Source="{Binding Speaker.Picture}"
                                                HorizontalOptions="FillAndExpand"
                                                VerticalOptions="FillAndExpand"

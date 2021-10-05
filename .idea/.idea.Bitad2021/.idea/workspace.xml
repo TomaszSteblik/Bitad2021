@@ -18,37 +18,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb1bb82e-82b3-4fec-8eac-dd79f385b9f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Controls/Button.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/WorkshopViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/WorkshopPage.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Resources/drawable-hdpi/info_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Resources/drawable-ldpi/info_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Resources/drawable-xhdpi/info_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/SpeakerViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/SpeakerPage.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Bitad2021/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Bitad2021/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/Bitad2021/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Bitad2021/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/Bitad2021/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Bitad2021/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Bitad2021.Android.csproj.user" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Bitad2021.Android.csproj.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Bitad2021.Android.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Bitad2021.Android.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/MainActivity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/MainActivity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Properties/AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Properties/AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Resources/Resource.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Resources/Resource.designer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Resources/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Resources/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/SplashActivity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/SplashActivity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/App.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/App.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Resources/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Resources/values/styles.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/App.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Bitad2021.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Bitad2021.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/BitadServiceRest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/BitadServiceRest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/IBitadService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/IBitadService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/Agenda.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/Agenda.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/ShirtSize.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/Speaker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/Speaker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/Workshop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/Workshop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/User.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/LectureViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/LectureViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/LecturesViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/LecturesViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/RegisterViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/RegisterViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/WorkshopsViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/WorkshopsViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/AgendasPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/AgendasPage.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturePage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturePage.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturesPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturesPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LoginPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LoginPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/RegisterPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/RegisterPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/WorkshopsPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/WorkshopsPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/WorkshopsPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/WorkshopsPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturesPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturesPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/SettingsPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/SettingsPage.xaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +66,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F164DB32-364F-4A01-A496-2FBA11FEBF1A/37/HttpClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Temp/RiderDebuggerEmbeddedSources/58BB98A56FB97246E2DCDB72/generated/src/Xamarin.Forms.Platform.Android.FormsViewGroup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/204215E7-1E4C-4AFC-9EB7-4A7288382C6B/5/LottieExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7E24CA6B-5952-413F-A565-D6BE5499306F/55/ReactiveCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Bitad2021/Bitad2021/obj/Debug/netstandard2.0/Views/LecturesPage.xaml.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/978EC34C-5C9C-4C4E-B3D7-3B6DA958BCD6/160/VisualElement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6DADD22E-0197-42CE-80AA-EFEF99855BE0/b6/b784eedd/Task.cs" root0="SKIP_HIGHLIGHTING" />
@@ -87,10 +76,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/TabPage.xaml" />
-      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/MainScreenViewModel.cs" />
-      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/MainScreenPage.xaml" />
-      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/MainScreenPage.xaml.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Controls/SnackBar.xaml" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Controls/SnackBar/SnackBarViewModel.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/TabbedPage.xaml.cs" />
@@ -100,7 +85,6 @@
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/AgendasPage.xaml.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/AgendasViewModel.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/TabbedPage.xaml" />
-      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/SettingsPage.xaml" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/LoginViewModel.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/SettingsViewModel.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LoginPage.xaml.cs" />
@@ -108,14 +92,10 @@
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/drawable/splash_screen.xml" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/ShirtSize.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturePage.xaml.cs" />
-      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturesPage.xaml.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Resources/drawable/splash_screen.xml" />
-      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Resources/values/styles.xml" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Properties/AssemblyInfo.cs" />
-      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/MainActivity.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/Agenda.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/SplashActivity.cs" />
-      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/App.xaml.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/AppBootstrapper.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/AgendasPage.xaml" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/WorkshopsPage.xaml.cs" />
@@ -125,7 +105,6 @@
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/Workshop.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/App.xaml" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Controls/Button.xaml" />
-      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Resources/values/colors.xml" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LoginPage.xaml" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/RegisterPage.xaml" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/IBitadService.cs" />
@@ -134,10 +113,20 @@
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/WorkshopsPage.xaml" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/BitadServiceRest.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/Speaker.cs" />
-      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturePage.xaml" />
-      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/LectureViewModel.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/App.xaml.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/MainActivity.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/LecturesViewModel.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturesPage.xaml.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturesPage.xaml" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/User.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Resources/values/colors.xml" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Resources/values/styles.xml" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/SpeakerViewModel.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/SpeakerPage.xaml.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/LectureViewModel.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturePage.xaml" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/SpeakerPage.xaml" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/SettingsPage.xaml" />
     </changedPaths>
   </component>
   <component name="InvalidFacetManager">
@@ -157,8 +146,8 @@
   <component name="PropertiesComponent">
     <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34940413" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_3_API_30" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-07-03T13:19:38.149392300Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_API_30" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-10-05T18:19:52.753950600Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -257,6 +246,12 @@
       <workItem from="1632569371147" duration="2880000" />
       <workItem from="1632684069037" duration="60000" />
       <workItem from="1632688638015" duration="5136000" />
+      <workItem from="1632848971817" duration="173000" />
+      <workItem from="1632855985634" duration="17000" />
+      <workItem from="1632950636518" duration="8774000" />
+      <workItem from="1633173220012" duration="1226000" />
+      <workItem from="1633457636376" duration="4185000" />
+      <workItem from="1633461938538" duration="3294000" />
     </task>
     <servers />
   </component>
