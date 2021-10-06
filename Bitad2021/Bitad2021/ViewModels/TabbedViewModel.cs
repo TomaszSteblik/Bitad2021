@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Windows.Input;
 using Bitad2021.Data;
+using Bitad2021.Models;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Splat;
@@ -19,13 +20,13 @@ namespace Bitad2021.ViewModels
         public QrScannerViewModel QrScannerViewModel { get; set; }
 
 
-        public TabbedViewModel(IBitadService bitadService = null, IScreen screen = null)
+        public TabbedViewModel(User user, IBitadService bitadService = null, IScreen screen = null)
         {
             _bitadService = bitadService ?? Locator.Current.GetService<IBitadService>();
             HostScreen = screen ?? Locator.Current.GetService<IScreen>();
 
             AgendasViewModel = new AgendasViewModel();
-            SettingsViewModel = new SettingsViewModel();
+            SettingsViewModel = new SettingsViewModel(user);
             QrScannerViewModel = new QrScannerViewModel();
 
         }

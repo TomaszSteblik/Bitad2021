@@ -10,9 +10,9 @@
     <ContentPage.Content>
         
         <StackLayout Margin="50">
-            <Image Source="splash_logo.png"></Image>
+            <Image Source="bitad_logo.png"/>
             <Entry Text="{Binding Username}" Placeholder="Login"
-                   Margin="60,0,60,0"/>
+                   Margin="60,60,60,0"/>
             <Entry Text="{Binding Password}" Placeholder="Hasło"
                    Margin="60,0,60,0"/>
             <Button Text="Zaloguj się" Command="{Binding LoginCommand}"

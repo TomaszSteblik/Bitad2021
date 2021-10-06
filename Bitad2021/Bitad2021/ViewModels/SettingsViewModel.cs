@@ -1,7 +1,9 @@
 ﻿using System.Reactive;
 using System.Windows.Input;
 using Bitad2021.Data;
+using Bitad2021.Models;
 using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 using Splat;
 using Xamarin.Essentials;
 
@@ -17,7 +19,15 @@ namespace Bitad2021.ViewModels
 
         public ReactiveCommand<Unit,Unit> LogoutCommand { get; set; }
 
-        public SettingsViewModel(IBitadService bitadService = null, IScreen hostScreen = null)
+        public ReactiveCommand<Unit,Unit> DownloadUserCommand { get; set; }
+
+        [Reactive]
+        public User User { get; set; }
+        
+        [Reactive]
+        public string AttendanceCode { get; set; }
+
+        public SettingsViewModel(User user, IBitadService bitadService = null, IScreen hostScreen = null)
         {
             _bitadService = bitadService ?? Locator.Current.GetService<IBitadService>();
             HostScreen = hostScreen ?? Locator.Current.GetService<IScreen>();
@@ -28,9 +38,21 @@ namespace Bitad2021.ViewModels
                 Preferences.Remove("username");
                 LoginNavigationCommand.Execute(null);
             });
+
+            User = user;
+            DownloadUserCommand = ReactiveCommand.CreateFromTask(async () =>
+            {
+                // ReSharper disable once PossibleNullReferenceException
+                User = await bitadService.GetUser();
+            });
+            
             
             LoginNavigationCommand = ReactiveCommand.CreateFromObservable(() => 
                 HostScreen.Router.NavigateAndReset.Execute(new LoginViewModel()));
+
+            //DownloadUserCommand.Execute();
+
+            AttendanceCode = User.AttendanceCode;
         }
 
         

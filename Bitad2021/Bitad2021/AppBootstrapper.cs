@@ -35,7 +35,7 @@ namespace Bitad2021
                 if(res is null)
                     Router.Navigate.Execute(new LoginViewModel());
                 else
-                    Router.NavigateAndReset.Execute(new TabbedViewModel());
+                    Router.NavigateAndReset.Execute(new TabbedViewModel(res));
             }
             else
             {
