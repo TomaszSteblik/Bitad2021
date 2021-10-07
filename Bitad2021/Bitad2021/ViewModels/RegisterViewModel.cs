@@ -36,7 +36,6 @@ namespace Bitad2021.ViewModels
                 if(res is null)
                     //TODO:HANDLE ERROR
                     return;
-                Debug.WriteLine(res.Name);
                 HostScreen.Router.NavigateBack.Execute();
             });
         }

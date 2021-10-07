@@ -57,8 +57,10 @@ namespace Bitad2021.ViewModels
                     Title = SelectedItem.Title,
                     Description = SelectedItem.Description,
                     ParticipantsNumber = SelectedItem.ParticipantsNumber,
-                    Code = SelectedItem.Code
+                    Code = SelectedItem.Code,
+                    MaxParticipants = SelectedItem.MaxParticipants
                 };
+                ViewWorkshopCommand.ThrownExceptions.Subscribe(ex => Debug.WriteLine(ex.Message));
                 //I know DRY, but got lazy
                 // Selection mode is set back to single in LecturesPage.xaml.cs in OnActivated()
                 // Setting it here to None automatically deselects all items if anything was selected

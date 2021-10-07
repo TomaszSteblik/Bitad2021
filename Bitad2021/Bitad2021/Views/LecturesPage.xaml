@@ -45,7 +45,8 @@
                                     <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                                            Text="{Binding Title}" 
                                            FontAttributes="Bold"
-                                           TextColor="#333"/>  
+                                           TextColor="#333"
+                                           VerticalOptions="Center"/>  
 
                                     <Frame Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" 
                                            Padding="0" 

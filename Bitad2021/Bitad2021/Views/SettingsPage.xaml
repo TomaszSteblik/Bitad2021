@@ -9,13 +9,45 @@
                               x:Class="Bitad2021.Views.SettingsPage">
     <ContentPage.Content>
         <StackLayout>
-            <zxing:ZXingBarcodeImageView BarcodeValue="{Binding User.AttendanceCode}"
-                                         WidthRequest="300"
-                                         HeightRequest="300">
-                <zxing:ZXingBarcodeImageView.BarcodeOptions>
-                    <common:EncodingOptions Height="300" Width="300"/>
-                </zxing:ZXingBarcodeImageView.BarcodeOptions>
-            </zxing:ZXingBarcodeImageView>
+            <Frame HasShadow="True"
+                   Margin="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                
+                    <Label Grid.Row="0" Grid.Column="0" Text="Twój pseudonim: "/>
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding User.Username}"
+                           FontAttributes="Bold"/>
+                
+                    <Label Grid.Row="1" Grid.Column="0" Text="Twój adres email: "/>
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding User.Email}"
+                           FontAttributes="Bold"/>
+                
+                    <Label Grid.Row="2" Grid.Column="0" Text="Twoje punkty QR: "/>
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding User.CurrentScore}"
+                           FontAttributes="Bold"/>
+                
+                </Grid>
+            </Frame>
+            
+            <Frame HasShadow="True"
+                   Margin="10">
+                <zxing:ZXingBarcodeImageView BarcodeValue="{Binding User.AttendanceCode}"
+                                             WidthRequest="300"
+                                             HeightRequest="300">
+                    <zxing:ZXingBarcodeImageView.BarcodeOptions>
+                        <common:EncodingOptions Height="300" Width="300"/>
+                    </zxing:ZXingBarcodeImageView.BarcodeOptions>
+                </zxing:ZXingBarcodeImageView>
+            </Frame>
+            
             <Button Command="{Binding LogoutCommand}" Text="Wyloguj"
                     Style="{StaticResource RoundButtonWithBorder}"
                     Margin="60,0,60,0"/>
