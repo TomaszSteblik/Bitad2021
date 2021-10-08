@@ -27,7 +27,7 @@ namespace Bitad2021.ViewModels
 
             AgendasViewModel = new AgendasViewModel();
             SettingsViewModel = new SettingsViewModel(user);
-            QrScannerViewModel = new QrScannerViewModel();
+            QrScannerViewModel = new QrScannerViewModel(SettingsViewModel);
 
         }
     }

@@ -26,6 +26,8 @@ namespace Bitad2021.ViewModels
         
         [Reactive]
         public string AttendanceCode { get; set; }
+        [Reactive]
+        public int CurrentScore { get; set; }
 
         public SettingsViewModel(User user, IBitadService bitadService = null, IScreen hostScreen = null)
         {
@@ -40,6 +42,7 @@ namespace Bitad2021.ViewModels
             });
 
             User = user;
+            CurrentScore = user.CurrentScore;
             DownloadUserCommand = ReactiveCommand.CreateFromTask(async () =>
             {
                 // ReSharper disable once PossibleNullReferenceException

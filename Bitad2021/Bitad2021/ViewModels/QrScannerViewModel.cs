@@ -29,7 +29,7 @@ namespace Bitad2021.ViewModels
         public event EventHandler<bool> OnQrResponseReceived;
         
         
-        public QrScannerViewModel(IBitadService bitadService = null)
+        public QrScannerViewModel(SettingsViewModel settings, IBitadService bitadService = null)
         {
             IsScanning = true;
             IsAnalyzing = true;
@@ -59,6 +59,7 @@ namespace Bitad2021.ViewModels
                         OnQrResponseReceived?.Invoke(this, true);
 
                         Debug.WriteLine($"{response.QrCode} for {response.Points} points");
+                        settings.CurrentScore += response.Points;
                     }
                 });
 
