@@ -30,9 +30,8 @@ namespace Bitad2021.ViewModels
         [Reactive]
         public string Password { get; set; }
         public ReactiveCommand<Unit,Unit> LoginCommand { get; set; }
+        public ReactiveCommand<string,Unit> TapLinkCommand { get; set; }
         
-        
-        public ICommand RegisterNavigationCommand { get; set; }
         public ICommand TabbedNavigationCommand { get; set; }
         
         public LoginViewModel(IBitadService bitadService = null, IScreen screen = null)
@@ -61,15 +60,15 @@ namespace Bitad2021.ViewModels
                 
             });
             LoginCommand.ThrownExceptions.Subscribe(ex => Debug.WriteLine(ex.Message));
-            
-            RegisterNavigationCommand = ReactiveCommand.CreateFromObservable(() =>
-            {
-                return HostScreen.Router.Navigate.Execute(new RegisterViewModel());
-            });
 
             TabbedNavigationCommand = ReactiveCommand.CreateFromObservable(() =>
             {
                 return HostScreen.Router.NavigateAndReset.Execute(new TabbedViewModel(user));
+            });
+            
+            TapLinkCommand = ReactiveCommand.CreateFromTask(async (string url) =>
+            {
+                await Launcher.OpenAsync(url);
             });
 
         }
