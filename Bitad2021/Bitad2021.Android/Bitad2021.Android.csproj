@@ -91,7 +91,9 @@
     <AndroidResource Include="Resources\drawable-hdpi\info_icon.png" />
     <AndroidResource Include="Resources\drawable-ldpi\info_icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\info_icon.png" />
-    <AndroidResource Include="Resources\drawable\bitad_logo.png" />
+    <AndroidResource Include="Resources\drawable\bitad_logo.png">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\drawable\icon.png" />
     <AndroidResource Include="Resources\drawable\splash_logo.png" />
     <AndroidResource Include="Resources\drawable\splash_screen.xml" />
