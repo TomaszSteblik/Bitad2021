@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Net;
 using System.Reactive;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Bitad2021.Data;
+using Bitad2021.Models;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
+using ReactiveUI.XamForms;
 using Splat;
+using Xamarin.CommunityToolkit.Extensions;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using ZXing;
 using ZXing.Net.Mobile.Forms;
@@ -16,7 +21,11 @@ namespace Bitad2021.ViewModels
     public class QrScannerViewModel : ReactiveObject
     {
         private IBitadService _bitadService;
+        public IScreen _hostScreen;
         public ICommand ScanResultCommand { get; set; }
+        public ICommand LoginNavigationCommand { get; set; }
+
+        public ReactiveCommand<Unit,Unit> LogoutCommand { get; set; }
         [Reactive]
         public Result Result { get; set; }
         [Reactive] 
@@ -26,41 +35,49 @@ namespace Bitad2021.ViewModels
         [Reactive] 
         public bool IsAnimationVisible { get; set; }
 
-        public event EventHandler<bool> OnQrResponseReceived;
+        public event EventHandler<(QrCodeResponse,HttpStatusCode)> OnQrResponseReceived;
         
         
-        public QrScannerViewModel(SettingsViewModel settings, IBitadService bitadService = null)
+        public QrScannerViewModel(SettingsViewModel settings, IBitadService bitadService = null, IScreen hostScreen = null)
         {
             IsScanning = true;
             IsAnalyzing = true;
             IsAnimationVisible = true;
             
             _bitadService = bitadService ?? Locator.Current.GetService<IBitadService>();
+            _hostScreen = hostScreen ?? Locator.Current.GetService<IScreen>();
 
+            LogoutCommand = ReactiveCommand.Create(() =>
+            {
+                Preferences.Remove("password");
+                Preferences.Remove("username");
+                LoginNavigationCommand.Execute(null);
+            });
+            
+            
+            LoginNavigationCommand = ReactiveCommand.CreateFromObservable(() => 
+                _hostScreen.Router.NavigateAndReset.Execute(new LoginViewModel()));
             
             ScanResultCommand = new Command(async () =>
             {
+                if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+                {
+                    await Application.Current.MainPage.DisplayToastAsync("Błąd połączenia");
+                    await Task.Delay(10000);
+                    return;
+                }
 
                 IsAnalyzing = false;
 
                 var response = await _bitadService.RedeemQrCode(Result.Text);
-                Device.BeginInvokeOnMainThread(() =>
+
+                //If i delete animations later, i can just use toast outside of mainthread
+                Device.BeginInvokeOnMainThread(async () =>
                 {
-                    if (response is null)
-                    {
-                        //show error message
-                        OnQrResponseReceived?.Invoke(this, false);
-
-                        Debug.WriteLine("ERROR");
-                    }
-                    else
-                    {
-                        //show succes message;
-                        OnQrResponseReceived?.Invoke(this, true);
-
-                        Debug.WriteLine($"{response.QrCode} for {response.Points} points");
-                        settings.CurrentScore += response.Points;
-                    }
+                    OnQrResponseReceived?.Invoke(this,response);
+                    if (response.Item1 is not null)
+                        settings.CurrentScore += response.Item1.Points;
+                    
                 });
 
                 await Task.Delay(5000);

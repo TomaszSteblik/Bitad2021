@@ -40,21 +40,13 @@ namespace Bitad2021.ViewModels
                 Preferences.Remove("username");
                 LoginNavigationCommand.Execute(null);
             });
-
-            User = user;
-            CurrentScore = user.CurrentScore;
-            DownloadUserCommand = ReactiveCommand.CreateFromTask(async () =>
-            {
-                // ReSharper disable once PossibleNullReferenceException
-                User = await bitadService.GetUser();
-            });
             
             
             LoginNavigationCommand = ReactiveCommand.CreateFromObservable(() => 
                 HostScreen.Router.NavigateAndReset.Execute(new LoginViewModel()));
-
-            //DownloadUserCommand.Execute();
-
+            
+            User = user;
+            CurrentScore = user.CurrentScore;
             AttendanceCode = User.AttendanceCode;
         }
 

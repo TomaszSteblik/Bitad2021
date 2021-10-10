@@ -24,6 +24,8 @@ namespace Bitad2021.ViewModels
         
         public ReactiveCommand<Unit, Unit> LoadDataCommand;
         public ReactiveCommand<Unit, IRoutableViewModel> ViewLectureCommand;
+        public ReactiveCommand<Unit,Unit> LogoutCommand { get; set; }
+
         [Reactive]
         public ObservableCollection<Agenda> Lectures{ get; set; }
         [Reactive]
@@ -37,15 +39,22 @@ namespace Bitad2021.ViewModels
             _hostScreen = hostScreen ?? Locator.Current.GetService<IScreen>();
             _bitadService = bitadService ?? Locator.Current.GetService<IBitadService>();
             Lectures = new ObservableCollection<Agenda>();
+
             LoadDataCommand = ReactiveCommand.CreateFromTask(async () =>
             {
+                
+                if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+                {
+                    ReactiveCommand.CreateFromObservable(() =>
+                        hostScreen.Router.NavigateAndReset.Execute(new LoginViewModel())).Execute();
+                    return;
+                }
+                
                 Lectures.AddRange(await _bitadService.GetAllAgendas());
             });
 
             SelectedItem = new Agenda();
-
-            var canExecute = this.WhenAnyValue(model => model.SelectedItem.Description, model => model.SelectedItem.Description,
-                (s, s1) => !string.IsNullOrEmpty(s));
+            
 
             ViewLectureCommand = ReactiveCommand.CreateFromObservable(() =>
             {

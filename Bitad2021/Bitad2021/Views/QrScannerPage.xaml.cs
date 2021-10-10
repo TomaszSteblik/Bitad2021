@@ -1,20 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
+using System.Net;
 using System.Reactive.Disposables;
-using System.Reactive.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Bitad2021.Models;
 using Bitad2021.ViewModels;
-using DynamicData.Binding;
 using ReactiveUI;
 using ReactiveUI.XamForms;
-using Xamarin.Forms;
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms.Xaml;
-using ZXing;
-using ZXing.Net.Mobile.Forms;
 
 namespace Bitad2021.Views
 {
@@ -44,12 +38,37 @@ namespace Bitad2021.Views
             });
         }
 
-        private void ViewModelOnOnQrResponseReceived(object sender, bool success)
+        private void ViewModelOnOnQrResponseReceived(object sender, (QrCodeResponse,HttpStatusCode) response)
         {
-            AnimationView.Animation = success ? "star.json" : "fail_cross.json";
+            AnimationView.Animation = response.Item1 is not null ? "star.json" : "fail_cross.json";
             ViewModel.IsAnimationVisible = true;
+            
             AnimationView.PlayAnimation();
+            
+            if(response.Item1 is null)
+            {
+                        
+                //show error message
 
+                switch (response.Item2)
+                {
+                    case HttpStatusCode.Unauthorized:
+                        SnackBarAnchor.DisplayToastAsync("Błąd autoryzacji");
+                        break;
+                    case HttpStatusCode.NoContent:
+                        SnackBarAnchor.DisplayToastAsync("Błędny kod");
+                        break;
+                    default:
+                        SnackBarAnchor.DisplayToastAsync("Nieznany błąd");
+                        break;
+                }
+            }else
+            {
+                //show succes message;
+                SnackBarAnchor.DisplayToastAsync($"Zdobyłeś {response.Item1.Points} punktów!");
+                        
+                        
+            }
         }
 
 

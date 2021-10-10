@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -32,7 +33,7 @@ namespace Bitad2021.Data
             Token = "";
         }
         
-        public async Task<User> Login(string username, string password)
+        public async Task<(User user, HttpStatusCode code)> Login(string username, string password)
         {
             
             var json = await Task.Factory.StartNew(() => JsonConvert.SerializeObject(new
@@ -47,13 +48,13 @@ namespace Bitad2021.Data
             
             
             if (!res.IsSuccessStatusCode)
-                return null;
+                return (null,res.StatusCode);
             
             Token = res.Headers.GetValues("authtoken").FirstOrDefault();
 
             var resJson = await res.Content.ReadAsStringAsync();
             
-            return await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<User>(resJson));
+            return (await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<User>(resJson)),res.StatusCode);
 
         }
 
@@ -148,7 +149,7 @@ namespace Bitad2021.Data
             return await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<IEnumerable<Workshop>>(resJson));
         }
 
-        public async Task<QrCodeResponse> RedeemQrCode(string qrCode)
+        public async Task<(QrCodeResponse, HttpStatusCode code)> RedeemQrCode(string qrCode)
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
             
@@ -156,16 +157,16 @@ namespace Bitad2021.Data
             parameters["code"] = qrCode;
             
             var res = await _httpClient.PostAsync("/QrCodeRedeem/RedeemQrCode",new FormUrlEncodedContent(parameters));
+
+            if (!res.IsSuccessStatusCode)
+                return (null,res.StatusCode);
             
             Token = res.Headers.GetValues("authtoken").FirstOrDefault();
-            
-            if (!res.IsSuccessStatusCode)
-                return null;
             
             var resJson = await res.Content.ReadAsStringAsync();
             
 
-            return await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<QrCodeResponse>(resJson));
+            return (await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<QrCodeResponse>(resJson)),res.StatusCode);
         }
 
         public async Task<bool> SelectWorkshop(string workshopCode)
@@ -177,6 +178,26 @@ namespace Bitad2021.Data
             
             var response = await _httpClient.PutAsync("/User/SelectWorkshop",new FormUrlEncodedContent(parameters));
             Token = response.Headers.GetValues("authtoken").FirstOrDefault();
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> RequestActivationResend(string username)
+        {
+            var parameters = new Dictionary<string, string>();
+            parameters["username"] = username;
+            
+            var response = await _httpClient.PutAsync("/User/RequestActivationResend",new FormUrlEncodedContent(parameters));
+            
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> IssuePasswordReset(string username)
+        {
+            var parameters = new Dictionary<string, string>();
+            parameters["username"] = username;
+            
+            var response = await _httpClient.PutAsync("/User/IssuePasswordReset",new FormUrlEncodedContent(parameters));
+
             return response.IsSuccessStatusCode;
         }
     }

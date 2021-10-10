@@ -9,6 +9,7 @@ using DynamicData;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Splat;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Bitad2021.ViewModels
@@ -35,6 +36,13 @@ namespace Bitad2021.ViewModels
 
             LoadDataCommand = ReactiveCommand.CreateFromTask(async () =>
             {
+                if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+                {
+                    ReactiveCommand.CreateFromObservable(() =>
+                        hostScreen.Router.NavigateAndReset.Execute(new LoginViewModel())).Execute();
+                    return;
+                }
+                
                 Workshops.AddRange(await _bitadService.GetAllWorkshops());
             });
             LoadDataCommand.ThrownExceptions.Subscribe(ex => Debug.WriteLine(ex.Message));

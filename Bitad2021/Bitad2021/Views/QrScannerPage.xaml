@@ -33,7 +33,7 @@
                         OnFinishedAnimation="AnimationView_OnOnFinishedAnimation"
                     />
                 </Grid>
-                
+                <Grid VerticalOptions="End" x:Name="SnackBarAnchor"/>
             </Grid>
     </ContentPage.Content>
     

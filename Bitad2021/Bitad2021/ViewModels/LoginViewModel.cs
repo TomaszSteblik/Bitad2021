@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Net;
 using System.Reactive;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Bitad2021.Data;
 using Bitad2021.Models;
-using Bitad2021.Views;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Splat;
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -40,18 +40,70 @@ namespace Bitad2021.ViewModels
             HostScreen = screen ?? Locator.Current.GetService<IScreen>();
 
             User user = new User();
+
+            
             
             LoginCommand = ReactiveCommand.CreateFromTask(async () =>
             {
                 
-                var res = await _bitadService.Login(Username, Password);
-                if (res is null)
+                if (Connectivity.NetworkAccess != NetworkAccess.Internet)
                 {
-                    //TODO: HANDLE ERROR
+                    await Application.Current.MainPage.DisplayToastAsync("Błąd połączenia");
+                    return;
+                }
+                
+                var res = await _bitadService.Login(Username, Password);
+                if (res.user is null)
+                {
+                    switch (res.code)
+                    {
+                        case HttpStatusCode.Forbidden:
+                            //nieaktywne konto
+                            await Application.Current.MainPage.DisplaySnackBarAsync("Konto nieaktywowane",
+                                "Wyślij email ponownie",
+                                async () =>
+                                {
+                                    if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+                                    {
+                                        await Application.Current.MainPage.DisplayToastAsync("Błąd połączenia");
+                                        return;
+                                    }
+                                    
+                                    var reqResponse = await _bitadService.RequestActivationResend(Username);
+                                    
+                                    await Application.Current.MainPage.DisplayToastAsync(reqResponse ? 
+                                        "Sprawdź pocztę email" : "Coś poszło nie tak...");
+                                    
+                                });
+                            break;
+                        case HttpStatusCode.NotFound:
+                            //bledne haslo
+                            await Application.Current.MainPage.DisplaySnackBarAsync("Błędne dane logowania",
+                                "Zresetuj hasło",
+                                async () =>
+                                {
+                                    if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+                                    {
+                                        await Application.Current.MainPage.DisplayToastAsync("Błąd połączenia");
+                                        return;
+                                    }
+                                    
+                                    var reqResponse = await _bitadService.IssuePasswordReset(Username);
+                                    
+                                    await Application.Current.MainPage.DisplayToastAsync(reqResponse ? 
+                                        "Sprawdź pocztę email" : "Coś poszło nie tak...");
+                                    
+                                });
+                            break;
+                        default:
+                            await Application.Current.MainPage.DisplayToastAsync("Nieznany błąd");
+                            break;
+                    }
+                    
                     return;
                 }
 
-                user = res;
+                user = res.user;
                 
                 Preferences.Set("password", Password);
                 Preferences.Set("username", Username);
@@ -73,6 +125,6 @@ namespace Bitad2021.ViewModels
 
         }
 
-        
+        //TODO: Dodać różne rozmiary zdjecia loga
     }
 }

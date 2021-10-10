@@ -7,6 +7,7 @@
                               x:Class="Bitad2021.Views.LecturesPage">
     <ContentPage.Content>
         <StackLayout>
+            <!-- TODO: Fix for narrower devices -->
             <ListView ItemsSource="{Binding Lectures}" x:Name="ListView" 
                       SelectedItem="{Binding SelectedItem,Mode=TwoWay}"                   
                       HasUnevenRows="True"
