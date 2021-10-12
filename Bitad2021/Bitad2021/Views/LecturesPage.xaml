@@ -21,7 +21,7 @@
                         <ViewCell>
                             <Frame HasShadow="True"
                                        BackgroundColor="White"
-                                       Margin="20 ,10, 20, 10" 
+                                       Margin="20 ,10, 20, 0" 
                                        Padding="20,20,20,20">
                                 <Grid>
                                     <Grid.RowDefinitions>
@@ -47,7 +47,8 @@
                                            Text="{Binding Title}" 
                                            FontAttributes="Bold"
                                            TextColor="#333"
-                                           VerticalOptions="Center"/>  
+                                           VerticalOptions="Center"
+                                           Margin="0,0,0,-10"/>  
 
                                     <Frame Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" 
                                            Padding="0" 

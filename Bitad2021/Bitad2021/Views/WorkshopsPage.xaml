@@ -20,7 +20,7 @@
                         <ViewCell>
                             <Frame HasShadow="True"
                                        BackgroundColor="White"
-                                       Margin="20 ,10, 20, 10" 
+                                       Margin="20 ,10, 20, 0" 
                                        Padding="20,20,20,20">
                                 <Grid>
                                     <Grid.RowDefinitions>
