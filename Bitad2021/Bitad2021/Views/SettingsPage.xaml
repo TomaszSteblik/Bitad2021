@@ -5,7 +5,7 @@
                               xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
                               xmlns:viewModels="clr-namespace:Bitad2021.ViewModels;assembly=Bitad2021"
                               xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
-                              xmlns:common="clr-namespace:ZXing.Common;assembly=zxing.portable"
+                              xmlns:common1="clr-namespace:ZXing.Common;assembly=zxing"
                               x:Class="Bitad2021.Views.SettingsPage">
     <ContentPage.Content>
         <StackLayout>
@@ -43,7 +43,7 @@
                                              WidthRequest="300"
                                              HeightRequest="300">
                     <zxing:ZXingBarcodeImageView.BarcodeOptions>
-                        <common:EncodingOptions Height="300" Width="300"/>
+                        <common1:EncodingOptions Height="300" Width="300"/>
                     </zxing:ZXingBarcodeImageView.BarcodeOptions>
                 </zxing:ZXingBarcodeImageView>
             </Frame>
