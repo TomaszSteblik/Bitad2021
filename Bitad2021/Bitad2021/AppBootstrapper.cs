@@ -30,6 +30,12 @@ namespace Bitad2021
             {
                 var password =  Preferences.Get("password","");
                 var username =  Preferences.Get("username","");
+                
+                if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+                {
+                    Router.Navigate.Execute(new LoginViewModel());
+                    return;
+                }
 
                 var res = bitadService.LoginSync(username, password);
                 if(res is null)

@@ -7,7 +7,6 @@
                               x:Class="Bitad2021.Views.LecturesPage">
     <ContentPage.Content>
         <StackLayout>
-            <!-- TODO: Fix for narrower devices -->
             <ListView ItemsSource="{Binding Lectures}" x:Name="ListView" 
                       SelectedItem="{Binding SelectedItem,Mode=TwoWay}"                   
                       HasUnevenRows="True"
@@ -19,7 +18,8 @@
                 <ListView.ItemTemplate>  
                     <DataTemplate x:DataType="Models:Agenda">  
                         <ViewCell>
-                            <Frame HasShadow="True"
+                            <StackLayout Padding="0,0,0,10">
+                                <Frame HasShadow="True"
                                        BackgroundColor="White"
                                        Margin="20 ,10, 20, 0" 
                                        Padding="20,20,20,20">
@@ -61,6 +61,8 @@
                                     </Frame> 
                                 </Grid>
                             </Frame>
+                            </StackLayout>
+                            
                         </ViewCell>  
                     </DataTemplate>  
                 </ListView.ItemTemplate>  

@@ -41,12 +41,16 @@
                                FontSize="Subtitle"
                                TextColor="#333"
                                HorizontalOptions="Center"/>
-                        <!--TODO: Dodać tutaj hiperłącze -->
-                        <Label Text="{Binding Speaker.Website}"
+                        
+                        <Label HorizontalOptions="Center"
                                FontAttributes="Italic"
+                               TextColor="#4093ce"
                                FontSize="Subtitle"
-                               TextColor="#333"
-                               HorizontalOptions="Center"/>
+                               Text="{Binding Speaker.Website}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TapLinkCommand}" CommandParameter="{Binding Speaker.WebsiteLink}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                     
                         <Label Text="{Binding Speaker.Description}"
                                FontSize="Body"

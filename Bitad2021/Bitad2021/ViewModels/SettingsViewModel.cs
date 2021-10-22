@@ -29,7 +29,7 @@ namespace Bitad2021.ViewModels
         [Reactive]
         public int CurrentScore { get; set; }
 
-        public SettingsViewModel(User user, IBitadService bitadService = null, IScreen hostScreen = null)
+        public SettingsViewModel(ref User user, IBitadService bitadService = null, IScreen hostScreen = null)
         {
             _bitadService = bitadService ?? Locator.Current.GetService<IBitadService>();
             HostScreen = hostScreen ?? Locator.Current.GetService<IScreen>();

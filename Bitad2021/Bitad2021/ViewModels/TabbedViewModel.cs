@@ -26,7 +26,7 @@ namespace Bitad2021.ViewModels
             HostScreen = screen ?? Locator.Current.GetService<IScreen>();
 
             AgendasViewModel = new AgendasViewModel();
-            SettingsViewModel = new SettingsViewModel(user);
+            SettingsViewModel = new SettingsViewModel(ref user);
             QrScannerViewModel = new QrScannerViewModel(SettingsViewModel);
 
         }

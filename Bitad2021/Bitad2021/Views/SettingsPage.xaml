@@ -8,49 +8,41 @@
                               xmlns:common1="clr-namespace:ZXing.Common;assembly=zxing"
                               x:Class="Bitad2021.Views.SettingsPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Frame HasShadow="True"
-                   Margin="10">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="110"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                
-                    <Label Grid.Row="0" Grid.Column="0" Text="Twój pseudonim: "/>
-                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding User.Username}"
-                           FontAttributes="Bold"/>
-                
-                    <Label Grid.Row="1" Grid.Column="0" Text="Twój adres email: "/>
-                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding User.Email}"
-                           FontAttributes="Bold"/>
-                
-                    <Label Grid.Row="2" Grid.Column="0" Text="Twoje punkty QR: "/>
-                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding CurrentScore}"
-                           FontAttributes="Bold"/>
-                
-                </Grid>
-            </Frame>
+        <ScrollView>
+            <StackLayout>
+                <Frame HasShadow="True"
+                       Margin="10">
+                    <StackLayout>
+                        
+                        <Label Text="{Binding Path=User.Username, StringFormat='Twój pseudonim: {0}'}"/>
+                        <Label Text="{Binding Path=User.Email, StringFormat='Twój adres email: {0}'}"/>
+                        <Label Text="{Binding Path=User.CurrentScore, StringFormat='Twoje punkty QR: {0}'}"
+                                FontSize="Medium"
+                                FontAttributes="Bold"/>
+
+                    </StackLayout>
+                </Frame>
             
-            <Frame HasShadow="True"
-                   Margin="10">
-                <zxing:ZXingBarcodeImageView BarcodeValue="{Binding User.AttendanceCode}"
-                                             WidthRequest="300"
-                                             HeightRequest="300">
-                    <zxing:ZXingBarcodeImageView.BarcodeOptions>
-                        <common1:EncodingOptions Height="300" Width="300"/>
-                    </zxing:ZXingBarcodeImageView.BarcodeOptions>
-                </zxing:ZXingBarcodeImageView>
-            </Frame>
+                <Frame HasShadow="True"
+                       Margin="10">
+                    <StackLayout>
+                        <Label Text="Pokaż ten kod QR jednemu z naszych wolontariuszy aby potwierdził Twoją obecność na konfrencji: "/>
+                        <zxing:ZXingBarcodeImageView BarcodeValue="{Binding User.AttendanceCode}"
+                                                     WidthRequest="300"
+                                                     HeightRequest="300">
+                            <zxing:ZXingBarcodeImageView.BarcodeOptions>
+                                <common1:EncodingOptions Height="300" Width="300"/>
+                            </zxing:ZXingBarcodeImageView.BarcodeOptions>
+                        </zxing:ZXingBarcodeImageView>
+                    </StackLayout>
+                
+                </Frame>
             
-            <Button Command="{Binding LogoutCommand}" Text="Wyloguj"
-                    Style="{StaticResource RoundButtonWithBorder}"
-                    Margin="60,0,60,0"/>
-        </StackLayout>
+                <Button Command="{Binding LogoutCommand}" Text="Wyloguj"
+                        Style="{StaticResource RoundButtonWithBorder}"
+                        Margin="60,0,60,0"/>
+            </StackLayout>
+        </ScrollView>
+        
     </ContentPage.Content>
 </xamForms:ReactiveContentPage>
