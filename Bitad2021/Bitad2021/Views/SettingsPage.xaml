@@ -13,12 +13,12 @@
                 <Frame HasShadow="True"
                        Margin="10">
                     <StackLayout>
-                        
-                        <Label Text="{Binding Path=User.Username, StringFormat='Twój pseudonim: {0}'}"/>
-                        <Label Text="{Binding Path=User.Email, StringFormat='Twój adres email: {0}'}"/>
+                        <Label Text="{Binding Path=User.FirstName, StringFormat='Witaj {0}'}"
+                               FontSize="Large"
+                               FontAttributes="Bold"/>
                         <Label Text="{Binding Path=User.CurrentScore, StringFormat='Twoje punkty QR: {0}'}"
-                                FontSize="Medium"
-                                FontAttributes="Bold"/>
+                               FontSize="Medium"
+                               FontAttributes="Bold"/>
 
                     </StackLayout>
                 </Frame>
@@ -34,8 +34,19 @@
                                 <common1:EncodingOptions Height="300" Width="300"/>
                             </zxing:ZXingBarcodeImageView.BarcodeOptions>
                         </zxing:ZXingBarcodeImageView>
+                        <Label Text="{Binding Path=User.AttendanceCode, StringFormat='Kod: {0}'}"/>
                     </StackLayout>
                 
+                </Frame>
+                
+                <Frame HasShadow="True"
+                       Margin="10"
+                       IsVisible="{Binding IsWorkshopCodeVisible}">
+                    <StackLayout>
+                        <Label Text="Pokaż ten kod QR jednemu z naszych wolontariuszy aby potwierdził Twoją obecność na wybranych przez Ciebie warsztatach: "/>
+                        <Label Text="{Binding Path=User.Workshop.Title, StringFormat='Warsztat: {0}'}"/>
+                        <Label Text="{Binding Path=User.WorkshopAttendanceCode, StringFormat='Kod: {0}'}"/>
+                    </StackLayout>
                 </Frame>
             
                 <Button Command="{Binding LogoutCommand}" Text="Wyloguj"

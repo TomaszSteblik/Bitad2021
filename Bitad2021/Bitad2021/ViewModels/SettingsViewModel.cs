@@ -29,6 +29,8 @@ namespace Bitad2021.ViewModels
         [Reactive]
         public int CurrentScore { get; set; }
 
+        public bool IsWorkshopCodeVisible => User.WorkshopAttendanceCode is not null;
+
         public SettingsViewModel(ref User user, IBitadService bitadService = null, IScreen hostScreen = null)
         {
             _bitadService = bitadService ?? Locator.Current.GetService<IBitadService>();

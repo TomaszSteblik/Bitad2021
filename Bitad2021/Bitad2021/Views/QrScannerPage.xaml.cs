@@ -40,10 +40,10 @@ namespace Bitad2021.Views
 
         private void ViewModelOnOnQrResponseReceived(object sender, (QrCodeResponse,HttpStatusCode) response)
         {
-            AnimationView.Animation = response.Item1 is not null ? "star.json" : "fail_cross.json";
-            ViewModel.IsAnimationVisible = true;
+            //AnimationView.Animation = response.Item1 is not null ? "star.json" : "fail_cross.json";
+            //ViewModel.IsAnimationVisible = true;
             
-            AnimationView.PlayAnimation();
+            //AnimationView.PlayAnimation();
             
             if(response.Item1 is null)
             {
