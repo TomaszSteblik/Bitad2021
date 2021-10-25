@@ -110,7 +110,18 @@ namespace Bitad2021.Data
 
         public async Task<User> GetUser()
         {
-            throw new System.NotImplementedException();
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+            var res = await _httpClient.GetAsync("/User/GetUser");
+
+            if (!res.IsSuccessStatusCode)
+                return null;
+            
+            Token = res.Headers.GetValues("authtoken").FirstOrDefault();
+            
+            var resJson = await res.Content.ReadAsStringAsync();
+            
+
+            return await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<User>(resJson));
         }
 
         public async Task<IEnumerable<Agenda>> GetAllAgendas()

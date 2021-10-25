@@ -23,13 +23,13 @@ namespace Bitad2021.ViewModels
         [Reactive]
         public LecturesViewModel LecturesViewModel { get; set; }
         
-        public AgendasViewModel(IBitadService bitadService = null)
+        public AgendasViewModel(ref User user, IBitadService bitadService = null)
         {
             _bitadService = bitadService ?? Locator.Current.GetService<IBitadService>();
 
             LecturesViewModel = new LecturesViewModel();
 
-            WorkshopsViewModel = new WorkshopsViewModel();
+            WorkshopsViewModel = new WorkshopsViewModel(ref user);
 
         }
     }

@@ -44,7 +44,14 @@
                        IsVisible="{Binding IsWorkshopCodeVisible}">
                     <StackLayout>
                         <Label Text="Pokaż ten kod QR jednemu z naszych wolontariuszy aby potwierdził Twoją obecność na wybranych przez Ciebie warsztatach: "/>
-                        <Label Text="{Binding Path=User.Workshop.Title, StringFormat='Warsztat: {0}'}"/>
+                        <Label Text="{Binding Path=User.Workshop.Title, StringFormat='Warsztat: {0}'}" FontSize="Medium"/>
+                        <zxing:ZXingBarcodeImageView BarcodeValue="{Binding User.WorkshopAttendanceCode}"
+                                                     WidthRequest="300"
+                                                     HeightRequest="300">
+                            <zxing:ZXingBarcodeImageView.BarcodeOptions>
+                                <common1:EncodingOptions Height="300" Width="300"/>
+                            </zxing:ZXingBarcodeImageView.BarcodeOptions>
+                        </zxing:ZXingBarcodeImageView>
                         <Label Text="{Binding Path=User.WorkshopAttendanceCode, StringFormat='Kod: {0}'}"/>
                     </StackLayout>
                 </Frame>

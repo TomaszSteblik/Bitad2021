@@ -25,7 +25,7 @@ namespace Bitad2021.ViewModels
             _bitadService = bitadService ?? Locator.Current.GetService<IBitadService>();
             HostScreen = screen ?? Locator.Current.GetService<IScreen>();
 
-            AgendasViewModel = new AgendasViewModel();
+            AgendasViewModel = new AgendasViewModel(ref user);
             SettingsViewModel = new SettingsViewModel(ref user);
             QrScannerViewModel = new QrScannerViewModel(SettingsViewModel);
 

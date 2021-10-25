@@ -73,7 +73,10 @@
                            LineBreakMode="WordWrap"/>
                     
                     
-                   
+                    <Button Text="Zapisz się" Command="{Binding SelectWorkshopCommand}"
+                            Style="{StaticResource RoundButtonWithBorder}"
+                            Margin="60,20,60,0"
+                            IsVisible="{Binding IsSelectWorkshopButtonVisible}"/>
                 </StackLayout>
             </Frame>
         </ScrollView>

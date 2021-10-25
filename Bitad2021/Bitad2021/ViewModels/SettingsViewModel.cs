@@ -1,11 +1,15 @@
-﻿using System.Reactive;
+﻿using System.Diagnostics;
+using System.Reactive;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Bitad2021.Data;
 using Bitad2021.Models;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Splat;
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace Bitad2021.ViewModels
 {
@@ -13,13 +17,12 @@ namespace Bitad2021.ViewModels
     {
         public string? UrlPathSegment => "Settings page";
         public IScreen HostScreen { get; }
-        private readonly IBitadService _bitadService;
+        public readonly IBitadService _bitadService;
 
         public ICommand LoginNavigationCommand { get; set; }
 
         public ReactiveCommand<Unit,Unit> LogoutCommand { get; set; }
 
-        public ReactiveCommand<Unit,Unit> DownloadUserCommand { get; set; }
 
         [Reactive]
         public User User { get; set; }
@@ -28,8 +31,10 @@ namespace Bitad2021.ViewModels
         public string AttendanceCode { get; set; }
         [Reactive]
         public int CurrentScore { get; set; }
+        [Reactive]
+        public bool IsWorkshopCodeVisible { get; set; }
 
-        public bool IsWorkshopCodeVisible => User.WorkshopAttendanceCode is not null;
+        public ReactiveCommand<Unit,Unit> DownloadUserCommand { get; set; }
 
         public SettingsViewModel(ref User user, IBitadService bitadService = null, IScreen hostScreen = null)
         {
@@ -50,6 +55,21 @@ namespace Bitad2021.ViewModels
             User = user;
             CurrentScore = user.CurrentScore;
             AttendanceCode = User.AttendanceCode;
+            IsWorkshopCodeVisible = User.WorkshopAttendanceCode is not null;
+            DownloadUserCommand = ReactiveCommand.CreateFromTask(async () =>
+            {
+                if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+                {
+                    await Application.Current.MainPage.DisplayToastAsync("Błąd połączenia");
+                    await Task.Delay(10000);
+                    return;
+                }
+                
+                User = await _bitadService.GetUser();
+                IsWorkshopCodeVisible = User.WorkshopAttendanceCode is not null;
+                await Application.Current.MainPage.DisplayToastAsync("Błąd połączenia");
+            });
+            //DownloadUserCommand.ThrownExceptions.Subscribe(ex => Debug.WriteLine("sdf"));
         }
 
         

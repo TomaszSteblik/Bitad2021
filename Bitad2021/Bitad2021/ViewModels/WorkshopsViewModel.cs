@@ -27,7 +27,7 @@ namespace Bitad2021.ViewModels
         [Reactive]
         public ListViewSelectionMode SelectionMode { get; set; }
 
-        public WorkshopsViewModel(IBitadService bitadService = null, IScreen hostScreen = null)
+        public WorkshopsViewModel(ref User user,IBitadService bitadService = null, IScreen hostScreen = null)
         {
             _hostScreen = hostScreen ?? Locator.Current.GetService<IScreen>();
             _bitadService = bitadService ?? Locator.Current.GetService<IBitadService>();
@@ -46,6 +46,9 @@ namespace Bitad2021.ViewModels
                 Workshops.AddRange(await _bitadService.GetAllWorkshops());
             });
             LoadDataCommand.ThrownExceptions.Subscribe(ex => Debug.WriteLine(ex.Message));
+
+            var userHasWorkshop = user.WorkshopAttendanceCode is not null;
+            
             ViewWorkshopCommand = ReactiveCommand.CreateFromObservable(() =>
             {
                 var workshop = new Workshop()
@@ -73,7 +76,7 @@ namespace Bitad2021.ViewModels
                 // Selection mode is set back to single in LecturesPage.xaml.cs in OnActivated()
                 // Setting it here to None automatically deselects all items if anything was selected
                 SelectionMode = ListViewSelectionMode.None;
-                return _hostScreen.Router.Navigate.Execute(new WorkshopViewModel(workshop));;
+                return _hostScreen.Router.Navigate.Execute(new WorkshopViewModel(userHasWorkshop, workshop));;
             });
             
             LoadDataCommand.Execute();
