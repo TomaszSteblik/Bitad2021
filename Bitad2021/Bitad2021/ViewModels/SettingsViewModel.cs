@@ -34,8 +34,6 @@ namespace Bitad2021.ViewModels
         [Reactive]
         public bool IsWorkshopCodeVisible { get; set; }
 
-        public ReactiveCommand<Unit,Unit> DownloadUserCommand { get; set; }
-
         public SettingsViewModel(ref User user, IBitadService bitadService = null, IScreen hostScreen = null)
         {
             _bitadService = bitadService ?? Locator.Current.GetService<IBitadService>();
@@ -56,20 +54,7 @@ namespace Bitad2021.ViewModels
             CurrentScore = user.CurrentScore;
             AttendanceCode = User.AttendanceCode;
             IsWorkshopCodeVisible = User.WorkshopAttendanceCode is not null;
-            DownloadUserCommand = ReactiveCommand.CreateFromTask(async () =>
-            {
-                if (Connectivity.NetworkAccess != NetworkAccess.Internet)
-                {
-                    await Application.Current.MainPage.DisplayToastAsync("Błąd połączenia");
-                    await Task.Delay(10000);
-                    return;
-                }
-                
-                User = await _bitadService.GetUser();
-                IsWorkshopCodeVisible = User.WorkshopAttendanceCode is not null;
-                await Application.Current.MainPage.DisplayToastAsync("Błąd połączenia");
-            });
-            //DownloadUserCommand.ThrownExceptions.Subscribe(ex => Debug.WriteLine("sdf"));
+
         }
 
         
