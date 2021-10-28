@@ -67,6 +67,25 @@
                         </Label>
                     </StackLayout>
                     
+                    <Label Text="{Binding Workshop.ExternalLink}"
+                           FontAttributes="Bold"
+                           FontSize="Subtitle"
+                           TextColor="#4093ce"
+                           HorizontalOptions="CenterAndExpand"
+                           IsVisible="{Binding IsExternalLinkVisible}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TapLinkCommand}" CommandParameter="{Binding Workshop.ExternalLink}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    
+                    <Label Text="{Binding Workshop.ShortInfo}"
+                           FontAttributes="Bold"
+                           FontSize="Subtitle"
+                           TextColor="#990F02"
+                           HorizontalOptions="CenterAndExpand"
+                           IsVisible="{Binding IsShortInfoVisible}">
+                    </Label>
+                    
                     <Label Text="{Binding Workshop.Description}"
                            FontSize="Body"
                            TextColor="#333"

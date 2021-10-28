@@ -13,7 +13,7 @@
             <Image Source="bitad_logo.png"
                    HeightRequest="170"/>
             
-            <Entry Text="{Binding Username}" Placeholder="Login"
+            <Entry Text="{Binding Username}" Placeholder="Email"
                    Margin="60,60,60,0"/>
             <Entry Text="{Binding Password}" Placeholder="Hasło"
                    Margin="60,0,60,0"
@@ -29,6 +29,7 @@
                    Text="Rejestracja"
                    HorizontalTextAlignment="Center">
                 <Label.GestureRecognizers>
+                    <!--TODO: NA PRODZIE ZMIENIC TUTAJ TEZ -->
                     <TapGestureRecognizer Command="{Binding TapLinkCommand}" CommandParameter="http://212.106.184.93/registration"/>
                 </Label.GestureRecognizers>
             </Label>

@@ -34,12 +34,12 @@ namespace Bitad2021.Data
             Token = "";
         }
         
-        public async Task<(User user, HttpStatusCode code)> Login(string username, string password)
+        public async Task<(User user, HttpStatusCode code)> Login(string email, string password)
         {
             
             var json = await Task.Factory.StartNew(() => JsonConvert.SerializeObject(new
             {
-                username,
+                email,
                 password
             }));
 
@@ -59,11 +59,11 @@ namespace Bitad2021.Data
 
         }
 
-        public User LoginSync(string username, string password)
+        public User LoginSync(string email, string password)
         {
             var json = JsonConvert.SerializeObject(new
             {
-                username,
+                email,
                 password
             });
 
@@ -82,15 +82,13 @@ namespace Bitad2021.Data
             return JsonConvert.DeserializeObject<User>(resJson);
         }
         
-
-        public async Task<User> Register(string email, string firstName,string lastName, string username, string password)
+        public async Task<User> Register(string email, string firstName,string lastName, string password)
         {
             var json = await Task.Factory.StartNew(() => JsonConvert.SerializeObject(new
             {
                 email,
                 firstName,
                 lastName,
-                username,
                 password
             }));
             
@@ -193,20 +191,20 @@ namespace Bitad2021.Data
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> RequestActivationResend(string username)
+        public async Task<bool> RequestActivationResend(string email)
         {
             var parameters = new Dictionary<string, string>();
-            parameters["username"] = username;
+            parameters["email"] = email;
             
             var response = await _httpClient.PutAsync("/User/RequestActivationResend",new FormUrlEncodedContent(parameters));
             
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> IssuePasswordReset(string username)
+        public async Task<bool> IssuePasswordReset(string email)
         {
             var parameters = new Dictionary<string, string>();
-            parameters["username"] = username;
+            parameters["email"] = email;
             
             var response = await _httpClient.PutAsync("/User/IssuePasswordReset",new FormUrlEncodedContent(parameters));
 

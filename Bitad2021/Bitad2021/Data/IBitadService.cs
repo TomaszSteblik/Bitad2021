@@ -10,7 +10,7 @@ namespace Bitad2021.Data
     {
         Task<(User user,HttpStatusCode code)> Login(string login, string password);
         User LoginSync(string username, string password);
-        Task<User> Register(string email, string firstName,string lastName, string username, string password);
+        Task<User> Register(string email, string firstName,string lastName, string password);
         Task<User> GetUser();
 
         Task<IEnumerable<Agenda>> GetAllAgendas();

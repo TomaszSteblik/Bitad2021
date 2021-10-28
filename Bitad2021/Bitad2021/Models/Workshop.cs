@@ -7,6 +7,8 @@ namespace Bitad2021.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public int ParticipantsNumber { get; set; }
+        public string? ShortInfo { get; set; }
+        public string? ExternalLink { get; set; }
         public string Room { get; set; }
         public Speaker Speaker { get; set; }
         public DateTime Start { get; set; }

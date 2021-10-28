@@ -26,6 +26,9 @@ namespace Bitad2021.ViewModels
         [Reactive]
         public bool IsSelectWorkshopButtonVisible { get; set; }
 
+        public bool IsShortInfoVisible => Workshop.ShortInfo is not null;
+        public bool IsExternalLinkVisible => Workshop.ExternalLink is not null;
+
         public WorkshopViewModel(bool userHasWorkshop,Workshop workshop, IScreen hostScreen = null, IBitadService bitadService = null)
         {
             HostScreen = hostScreen ?? Locator.Current.GetService<IScreen>();

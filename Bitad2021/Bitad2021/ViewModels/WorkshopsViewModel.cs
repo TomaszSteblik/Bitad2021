@@ -69,7 +69,9 @@ namespace Bitad2021.ViewModels
                     Description = SelectedItem.Description,
                     ParticipantsNumber = SelectedItem.ParticipantsNumber,
                     Code = SelectedItem.Code,
-                    MaxParticipants = SelectedItem.MaxParticipants
+                    MaxParticipants = SelectedItem.MaxParticipants,
+                    ExternalLink = SelectedItem.ExternalLink,
+                    ShortInfo = SelectedItem.ShortInfo
                 };
                 ViewWorkshopCommand.ThrownExceptions.Subscribe(ex => Debug.WriteLine(ex.Message));
                 //I know DRY, but got lazy

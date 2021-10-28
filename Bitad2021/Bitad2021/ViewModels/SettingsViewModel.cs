@@ -56,7 +56,5 @@ namespace Bitad2021.ViewModels
             IsWorkshopCodeVisible = User.WorkshopAttendanceCode is not null;
 
         }
-
-        
     }
 }
