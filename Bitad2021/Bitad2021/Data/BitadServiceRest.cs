@@ -186,7 +186,7 @@ namespace Bitad2021.Data
             var parameters = new Dictionary<string, string>();
             parameters["workshopCode"] = workshopCode;
             
-            var response = await _httpClient.PutAsync("/User/SelectWorkshop",new FormUrlEncodedContent(parameters));
+            var response = await _httpClient.PutAsync("/Workshop/SelectWorkshop",new FormUrlEncodedContent(parameters));
             Token = response.Headers.GetValues("authtoken").FirstOrDefault();
             return response.IsSuccessStatusCode;
         }
