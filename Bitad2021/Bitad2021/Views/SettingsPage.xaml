@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xamForms:ReactiveContentPage x:TypeArguments="viewModels:SettingsViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
+<xamForms:ReactiveContentPage x:TypeArguments="viewModels:SettingsViewModel"
+                              xmlns="http://xamarin.com/schemas/2014/forms"
                               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                               xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
                               xmlns:viewModels="clr-namespace:Bitad2021.ViewModels;assembly=Bitad2021"
@@ -11,101 +12,102 @@
         <ScrollView>
             <StackLayout>
                 <Frame HasShadow="True"
-                       Margin="20">
+                       Margin="20,20,20,0">
                     <StackLayout>
                         <Label Text="{Binding Path=User.FirstName, StringFormat='Witaj {0}'}"
                                FontSize="Large"
-                               FontAttributes="Bold"/>
+                               FontAttributes="Bold" />
                         <Label Text="{Binding Path=User.CurrentScore, StringFormat='Twoje punkty QR: {0}'}"
                                FontSize="Medium"
-                               FontAttributes="Bold"/>
+                               FontAttributes="Bold" />
                         <Label Text="{Binding Path=User.RewardCode, StringFormat='Twój kod do odebrania nagrody: {0}'}"
                                FontSize="Medium"
-                               FontAttributes="Bold"/>
+                               FontAttributes="Bold" />
 
                     </StackLayout>
                 </Frame>
-            
+
                 <Frame HasShadow="True"
                        Margin="20">
                     <StackLayout>
-                        <Label Text="Pokaż ten kod QR jednemu z naszych wolontariuszy aby potwierdził Twoją obecność na konfrencji: "/>
+                        <Label
+                            Text="Pokaż ten kod QR jednemu z naszych wolontariuszy aby potwierdził Twoją obecność na konfrencji: " />
                         <zxing:ZXingBarcodeImageView BarcodeValue="{Binding User.AttendanceCode}"
                                                      WidthRequest="300"
                                                      HeightRequest="300">
                             <zxing:ZXingBarcodeImageView.BarcodeOptions>
-                                <common1:EncodingOptions Height="300" Width="300"/>
+                                <common1:EncodingOptions Height="300" Width="300" />
                             </zxing:ZXingBarcodeImageView.BarcodeOptions>
                         </zxing:ZXingBarcodeImageView>
                     </StackLayout>
-                
+
                 </Frame>
-                
-                <Frame HasShadow="False"
-                   BackgroundColor="White"
-                   Margin="20 ,10, 20, 0" 
-                   Padding="20,20,20,20"
-                   IsVisible="{Binding IsWorkshopCodeVisible}">
+
+                <Frame HasShadow="True"
+                       BackgroundColor="White"
+                       Margin="20 ,0, 20, 20"
+                       Padding="20,20,20,20"
+                       IsVisible="{Binding IsWorkshopVisible}">
                     <Grid BindingContext="{Binding User.Workshop}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="55" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="80" />
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Row="0" Grid.Column="0" 
+                        <Label Grid.Row="0" Grid.Column="0"
                                Text="{Binding Room}" />
                         <Label Grid.Row="0" Grid.Column="1">
                             <Label.Text>
                                 <MultiBinding StringFormat="{}{0:HH:mm} - {1:HH:mm}">
-                                    <Binding Path="Start"/>
-                                    <Binding Path="End"/>
+                                    <Binding Path="Start" />
+                                    <Binding Path="End" />
                                 </MultiBinding>
                             </Label.Text>
                         </Label>
-                        
-                        
-                        
+
+
                         <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                                      VerticalOptions="Center">
-                            <Label 
-                                Text="{Binding Title}" 
+                            <Label
+                                Text="{Binding Title}"
                                 FontAttributes="Bold"
-                                TextColor="#333"/>  
+                                TextColor="#333" />
                             <!-- TODO: Make this red if full -->
                             <Label FontSize="Micro"
                                    FontAttributes="Italic"
                                    TextColor="#333">
                                 <Label.Text>
                                     <MultiBinding StringFormat="{}{0}/{1}">
-                                        <Binding Path="ParticipantsNumber"/>
-                                        <Binding Path="MaxParticipants"/>
+                                        <Binding Path="ParticipantsNumber" />
+                                        <Binding Path="MaxParticipants" />
                                     </MultiBinding>
                                 </Label.Text>
                             </Label>
                         </StackLayout>
 
-                        
+
                         <Frame Grid.Row="0" Grid.Column="2" Grid.RowSpan="2"
-                                Padding="0" 
-                                CornerRadius="100">
+                               Padding="0"
+                               CornerRadius="100"
+                               HasShadow="False">
                             <Image Source="{Binding Speaker.Picture}"
                                    HorizontalOptions="FillAndExpand"
                                    VerticalOptions="FillAndExpand"
-                                   Aspect="AspectFill"/>
-                        </Frame> 
+                                   Aspect="AspectFill" />
+                        </Frame>
 
                     </Grid>
                 </Frame>
-            
+
                 <Button Command="{Binding LogoutCommand}" Text="Wyloguj"
                         Style="{StaticResource RoundButtonWithBorder}"
-                        Margin="70,0,70,0"/>
+                        Margin="70,0,70,20" />
             </StackLayout>
         </ScrollView>
-        
+
     </ContentPage.Content>
 </xamForms:ReactiveContentPage>

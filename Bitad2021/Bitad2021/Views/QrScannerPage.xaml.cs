@@ -24,9 +24,9 @@ namespace Bitad2021.Views
             {
                 ViewModel.IsAnalyzing = true;
                 Debug.WriteLine("qr activated");
-                
+
                 ViewModel.OnQrResponseReceived += ViewModelOnOnQrResponseReceived;
-                
+
                 Disposable
                     .Create(() =>
                     {
@@ -34,20 +34,17 @@ namespace Bitad2021.Views
                         ViewModel.OnQrResponseReceived -= ViewModelOnOnQrResponseReceived;
                         Debug.WriteLine("qr deactivated");
                     }).DisposeWith(disposable);
-                
             });
         }
 
-        private void ViewModelOnOnQrResponseReceived(object sender, (QrCodeResponse,HttpStatusCode) response)
+        private void ViewModelOnOnQrResponseReceived(object sender, (QrCodeResponse, HttpStatusCode) response)
         {
             //AnimationView.Animation = response.Item1 is not null ? "star.json" : "fail_cross.json";
             //ViewModel.IsAnimationVisible = true;
-            
+
             //AnimationView.PlayAnimation();
-            
-            if(response.Item1 is null)
-            {
-                        
+
+            if (response.Item1 is null)
                 //show error message
 
                 switch (response.Item2)
@@ -62,13 +59,9 @@ namespace Bitad2021.Views
                         SnackBarAnchor.DisplayToastAsync("Nieznany błąd");
                         break;
                 }
-            }else
-            {
+            else
                 //show succes message;
                 SnackBarAnchor.DisplayToastAsync($"Zdobyłeś {response.Item1.Points} punktów!");
-                        
-                        
-            }
         }
 
 

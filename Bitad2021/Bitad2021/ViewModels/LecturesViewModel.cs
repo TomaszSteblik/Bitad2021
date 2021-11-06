@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Reactive;
-using System.Reactive.Linq;
-using System.Threading;
 using Bitad2021.Data;
 using Bitad2021.Models;
 using DynamicData;
@@ -19,21 +16,13 @@ namespace Bitad2021.ViewModels
     public class LecturesViewModel : ReactiveObject
     {
         public IBitadService _bitadService;
-        private IScreen _hostScreen;
-        
-        
+        private readonly IScreen _hostScreen;
+
+
         public ReactiveCommand<Unit, Unit> LoadDataCommand;
         public ReactiveCommand<Unit, IRoutableViewModel> ViewLectureCommand;
-        public ReactiveCommand<Unit,Unit> LogoutCommand { get; set; }
 
-        [Reactive]
-        public ObservableCollection<Agenda> Lectures{ get; set; }
-        [Reactive]
-        public Agenda SelectedItem { get; set; }
-        [Reactive] 
-        public ListViewSelectionMode SelectionMode { get; set; } 
-        
-        
+
         public LecturesViewModel(IBitadService bitadService = null, IScreen hostScreen = null)
         {
             _hostScreen = hostScreen ?? Locator.Current.GetService<IScreen>();
@@ -42,29 +31,26 @@ namespace Bitad2021.ViewModels
 
             LoadDataCommand = ReactiveCommand.CreateFromTask(async () =>
             {
-                
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
                 {
                     ReactiveCommand.CreateFromObservable(() =>
                         hostScreen.Router.NavigateAndReset.Execute(new LoginViewModel())).Execute();
                     return;
                 }
-                
+
                 Lectures.AddRange(await _bitadService.GetAllAgendas());
             });
 
             SelectedItem = new Agenda();
-            
+
 
             ViewLectureCommand = ReactiveCommand.CreateFromObservable(() =>
             {
-
-                
-                var agenda = new Agenda()
+                var agenda = new Agenda
                 {
                     End = DateTime.FromOADate(SelectedItem.End.ToOADate()),
                     Room = SelectedItem.Room,
-                    Speaker = new Speaker()
+                    Speaker = new Speaker
                     {
                         Company = SelectedItem.Speaker.Company,
                         Description = SelectedItem.Speaker.Description,
@@ -77,19 +63,27 @@ namespace Bitad2021.ViewModels
                     Title = SelectedItem.Title,
                     Description = SelectedItem.Description
                 };
-                
+
                 SelectionMode = ListViewSelectionMode.None;
                 SelectionMode = ListViewSelectionMode.Single;
-                
+
                 if (agenda.Description is null)
                     return null;
 
-                return  _hostScreen.Router.Navigate.Execute(new LectureViewModel(agenda));
+                return _hostScreen.Router.Navigate.Execute(new LectureViewModel(agenda));
             });
 
             ViewLectureCommand.ThrownExceptions.Subscribe(ex => Debug.WriteLine(ex.Message));
-      
+
             LoadDataCommand.Execute();
         }
+
+        public ReactiveCommand<Unit, Unit> LogoutCommand { get; set; }
+
+        [Reactive] public ObservableCollection<Agenda> Lectures { get; set; }
+
+        [Reactive] public Agenda SelectedItem { get; set; }
+
+        [Reactive] public ListViewSelectionMode SelectionMode { get; set; }
     }
 }

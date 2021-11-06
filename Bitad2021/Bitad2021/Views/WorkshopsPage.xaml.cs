@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Bitad2021.ViewModels;
+﻿using Bitad2021.ViewModels;
 using ReactiveUI;
 using ReactiveUI.XamForms;
 using Xamarin.Forms;
@@ -20,7 +15,7 @@ namespace Bitad2021.Views
             this.WhenActivated(d =>
             {
                 d(this.BindCommand(
-                    this.ViewModel,
+                    ViewModel,
                     vm => vm.ViewWorkshopCommand,
                     v => v.ListView,
                     nameof(ListView.ItemSelected)));

@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Bitad2021.ViewModels;
+﻿using Bitad2021.ViewModels;
 using ReactiveUI;
 using ReactiveUI.XamForms;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
+using Xamarin.Forms.Xaml;
 
 namespace Bitad2021.Views
 {
@@ -21,12 +15,12 @@ namespace Bitad2021.Views
 
             this.WhenActivated(disposable =>
             {
-                bool hasPassword = Preferences.ContainsKey("password");
-                bool hasUsername = Preferences.ContainsKey("username");
+                var hasPassword = Preferences.ContainsKey("password");
+                var hasUsername = Preferences.ContainsKey("username");
                 if (hasPassword && hasUsername)
                 {
-                    ViewModel.Password =  Preferences.Get("password","");
-                    ViewModel.Username =  Preferences.Get("username","");
+                    ViewModel.Password = Preferences.Get("password", "");
+                    ViewModel.Username = Preferences.Get("username", "");
 
                     ViewModel.LoginCommand.Execute();
                 }

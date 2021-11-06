@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Reactive;
@@ -17,17 +16,9 @@ namespace Bitad2021.ViewModels
     public class WorkshopsViewModel : ReactiveObject
     {
         public IBitadService _bitadService;
-        private IScreen _hostScreen;
-        
-        [Reactive]
-        public ObservableCollection<Workshop> Workshops { get; set; }
-        public ReactiveCommand<Unit,Unit> LoadDataCommand { get; set; }
-        public ReactiveCommand<Unit,IRoutableViewModel> ViewWorkshopCommand { get; set; }
-        public Workshop SelectedItem { get; set; }
-        [Reactive]
-        public ListViewSelectionMode SelectionMode { get; set; }
+        private readonly IScreen _hostScreen;
 
-        public WorkshopsViewModel(ref User user,IBitadService bitadService = null, IScreen hostScreen = null)
+        public WorkshopsViewModel(ref User user, IBitadService bitadService = null, IScreen hostScreen = null)
         {
             _hostScreen = hostScreen ?? Locator.Current.GetService<IScreen>();
             _bitadService = bitadService ?? Locator.Current.GetService<IBitadService>();
@@ -42,20 +33,20 @@ namespace Bitad2021.ViewModels
                         hostScreen.Router.NavigateAndReset.Execute(new LoginViewModel())).Execute();
                     return;
                 }
-                
+
                 Workshops.AddRange(await _bitadService.GetAllWorkshops());
             });
             LoadDataCommand.ThrownExceptions.Subscribe(ex => Debug.WriteLine(ex.Message));
 
-            var userHasWorkshop = user.WorkshopAttendanceCode is not null;
-            
+            var userHasWorkshop = user.Workshop is not null;
+
             ViewWorkshopCommand = ReactiveCommand.CreateFromObservable(() =>
             {
-                var workshop = new Workshop()
+                var workshop = new Workshop
                 {
                     End = DateTime.FromOADate(SelectedItem.End.ToOADate()),
                     Room = SelectedItem.Room,
-                    Speaker = new Speaker()
+                    Speaker = new Speaker
                     {
                         Company = SelectedItem.Speaker.Company,
                         Description = SelectedItem.Speaker.Description,
@@ -78,11 +69,19 @@ namespace Bitad2021.ViewModels
                 // Selection mode is set back to single in LecturesPage.xaml.cs in OnActivated()
                 // Setting it here to None automatically deselects all items if anything was selected
                 SelectionMode = ListViewSelectionMode.None;
-                return _hostScreen.Router.Navigate.Execute(new WorkshopViewModel(userHasWorkshop, workshop));;
+                return _hostScreen.Router.Navigate.Execute(new WorkshopViewModel(userHasWorkshop, workshop));
+                ;
             });
-            
+
             LoadDataCommand.Execute();
-            
         }
+
+        [Reactive] public ObservableCollection<Workshop> Workshops { get; set; }
+
+        public ReactiveCommand<Unit, Unit> LoadDataCommand { get; set; }
+        public ReactiveCommand<Unit, IRoutableViewModel> ViewWorkshopCommand { get; set; }
+        public Workshop SelectedItem { get; set; }
+
+        [Reactive] public ListViewSelectionMode SelectionMode { get; set; }
     }
 }

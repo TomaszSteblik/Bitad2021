@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Bitad2021.Models;
+﻿using System.Threading.Tasks;
 using Bitad2021.ViewModels;
 using ReactiveUI;
 using ReactiveUI.XamForms;
@@ -29,11 +23,10 @@ namespace Bitad2021.Views
                     await Task.Delay(10000);
                     return;
                 }
-                
+
                 ViewModel.User = await ViewModel._bitadService.GetUser();
-                ViewModel.IsWorkshopCodeVisible = ViewModel.User.WorkshopAttendanceCode is not null;
+                ViewModel.IsWorkshopVisible = ViewModel.User.Workshop is not null;
             });
         }
-
     }
 }

@@ -1,6 +1,4 @@
-﻿using Bitad2021.Data;
-
-namespace Bitad2021.Models
+﻿namespace Bitad2021.Models
 {
     public class Speaker
     {

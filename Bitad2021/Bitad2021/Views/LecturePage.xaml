@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xamForms:ReactiveContentPage x:TypeArguments="viewModels:LectureViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
+<xamForms:ReactiveContentPage x:TypeArguments="viewModels:LectureViewModel"
+                              xmlns="http://xamarin.com/schemas/2014/forms"
                               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                               xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
                               xmlns:viewModels="clr-namespace:Bitad2021.ViewModels;assembly=Bitad2021"
@@ -13,58 +14,57 @@
                 <StackLayout>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Frame Grid.Column="1" Padding="0"
-                               HasShadow="False" 
+                               HasShadow="False"
                                CornerRadius="60"
                                HeightRequest="120">
                             <Image Source="{Binding Lecture.Speaker.Picture}"
                                    HorizontalOptions="FillAndExpand"
                                    VerticalOptions="FillAndExpand"
-                                   Aspect="AspectFill"/>
+                                   Aspect="AspectFill" />
                         </Frame>
-                        <Image Grid.Column="1" 
+                        <Image Grid.Column="1"
                                Margin="85,85,0,0"
                                Source="info_icon.png">
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer
                                     Command="{Binding ViewSpeakerCommand}"
-                                    NumberOfTapsRequired="1"/>
+                                    NumberOfTapsRequired="1" />
                             </Image.GestureRecognizers>
                         </Image>
                     </Grid>
-                    
-                
+
+
                     <Label Text="{Binding Lecture.Title}"
                            FontAttributes="Bold"
                            FontSize="Title"
                            TextColor="#333"
-                           HorizontalOptions="CenterAndExpand"/>
-                    
+                           HorizontalOptions="CenterAndExpand" />
+
                     <StackLayout Spacing="0"
                                  HorizontalOptions="Center">
                         <Label FontSize="Subtitle"
                                HorizontalTextAlignment="Center">
                             <Label.Text>
                                 <MultiBinding StringFormat="{}{0:HH:mm} - {1:HH:mm}">
-                                    <Binding Path="Lecture.Start"/>
-                                    <Binding Path="Lecture.End"/>
+                                    <Binding Path="Lecture.Start" />
+                                    <Binding Path="Lecture.End" />
                                 </MultiBinding>
                             </Label.Text>
                         </Label>
-                        <Label Text="{Binding Lecture.Room}" FontSize="Subtitle" HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding Lecture.Room}" FontSize="Subtitle" HorizontalTextAlignment="Center" />
                     </StackLayout>
-                    
+
                     <Label Text="{Binding Lecture.Description}"
                            FontSize="Body"
                            TextColor="#333"
-                           LineBreakMode="WordWrap"/>
-                    
-                    
-                   
+                           LineBreakMode="WordWrap" />
+
+
                 </StackLayout>
             </Frame>
         </ScrollView>

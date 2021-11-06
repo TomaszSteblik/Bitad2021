@@ -1,5 +1,4 @@
-﻿using Bitad2021.Models;
-using Bitad2021.ViewModels;
+﻿using Bitad2021.ViewModels;
 using ReactiveUI;
 using ReactiveUI.XamForms;
 using Xamarin.Forms;
@@ -17,7 +16,7 @@ namespace Bitad2021.Views
                 d =>
                 {
                     d(this.BindCommand(
-                        this.ViewModel,
+                        ViewModel,
                         vm => vm.ViewLectureCommand,
                         v => v.ListView,
                         nameof(ListView.ItemSelected)));
@@ -28,7 +27,6 @@ namespace Bitad2021.Views
 
         private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            
         }
     }
 }

@@ -4,24 +4,23 @@
                               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                               xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
                               xmlns:viewModels="clr-namespace:Bitad2021.ViewModels;assembly=Bitad2021"
-                              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
                               x:Class="Bitad2021.Views.LoginPage"
                               NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        
+
         <StackLayout Margin="50">
             <Image Source="bitad_logo.png"
-                   HeightRequest="170"/>
-            
+                   HeightRequest="170" />
+
             <Entry Text="{Binding Username}" Placeholder="Email"
-                   Margin="60,60,60,0"/>
+                   Margin="60,60,60,0" />
             <Entry Text="{Binding Password}" Placeholder="Hasło"
                    Margin="60,0,60,0"
                    IsPassword="True"
-                   ReturnCommand="{Binding LoginCommand}"/>
+                   ReturnCommand="{Binding LoginCommand}" />
             <Button Text="Zaloguj się" Command="{Binding LoginCommand}"
                     Style="{StaticResource RoundButtonWithBorder}"
-                    Margin="60,0,60,0"/>
+                    Margin="60,0,60,0" />
 
             <Label HorizontalOptions="Center"
                    TextColor="#4093ce"
@@ -30,12 +29,13 @@
                    HorizontalTextAlignment="Center">
                 <Label.GestureRecognizers>
                     <!--TODO: NA PRODZIE ZMIENIC TUTAJ TEZ -->
-                    <TapGestureRecognizer Command="{Binding TapLinkCommand}" CommandParameter="http://212.106.184.93/registration"/>
+                    <TapGestureRecognizer Command="{Binding TapLinkCommand}"
+                                          CommandParameter="http://212.106.184.93/registration" />
                 </Label.GestureRecognizers>
             </Label>
-            
-            
+
+
         </StackLayout>
-        
+
     </ContentPage.Content>
 </xamForms:ReactiveContentPage>

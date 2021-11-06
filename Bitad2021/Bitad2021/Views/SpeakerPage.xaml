@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xamForms:ReactiveContentPage x:TypeArguments="viewModels:SpeakerViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
+<xamForms:ReactiveContentPage x:TypeArguments="viewModels:SpeakerViewModel"
+                              xmlns="http://xamarin.com/schemas/2014/forms"
                               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                               xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
                               xmlns:viewModels="clr-namespace:Bitad2021.ViewModels;assembly=Bitad2021"
@@ -15,52 +16,53 @@
                     <StackLayout>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="120"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="120" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Frame Grid.Column="1" Padding="0"
-                                   HasShadow="False" 
+                                   HasShadow="False"
                                    CornerRadius="60"
                                    HeightRequest="120">
                                 <Image Source="{Binding Speaker.Picture}"
                                        HorizontalOptions="FillAndExpand"
                                        VerticalOptions="FillAndExpand"
-                                       Aspect="AspectFill"/>
+                                       Aspect="AspectFill" />
                             </Frame>
                         </Grid>
-                    
+
                         <Label Text="{Binding Speaker.Name}"
                                FontAttributes="Bold"
                                FontSize="Title"
                                TextColor="#333"
-                               HorizontalOptions="Center"/>
-                    
+                               HorizontalOptions="Center" />
+
                         <Label Text="{Binding Speaker.Company}"
                                FontAttributes="Bold"
                                FontSize="Subtitle"
                                TextColor="#333"
-                               HorizontalOptions="Center"/>
-                        
+                               HorizontalOptions="Center" />
+
                         <Label HorizontalOptions="Center"
                                FontAttributes="Italic"
                                TextColor="#4093ce"
                                FontSize="Subtitle"
                                Text="{Binding Speaker.Website}">
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding TapLinkCommand}" CommandParameter="{Binding Speaker.WebsiteLink}"/>
+                                <TapGestureRecognizer Command="{Binding TapLinkCommand}"
+                                                      CommandParameter="{Binding Speaker.WebsiteLink}" />
                             </Label.GestureRecognizers>
                         </Label>
-                    
+
                         <Label Text="{Binding Speaker.Description}"
                                FontSize="Body"
                                TextColor="#333"
-                               LineBreakMode="WordWrap"/>
+                               LineBreakMode="WordWrap" />
                     </StackLayout>
                 </Frame>
-                    
+
             </Frame>
         </ScrollView>
-        
+
     </ContentPage.Content>
 </xamForms:ReactiveContentPage>

@@ -18,40 +18,22 @@ namespace Bitad2021.ViewModels
     {
         private readonly IBitadService _bitadService;
 
-        public string UrlPathSegment { get; } = "Login Screen";
-        public IScreen HostScreen { get; }
-
-        [Reactive]
-        public bool IsVisible { get; set; }
-        
-        
-        [Reactive]
-        public string Username { get; set; }
-        [Reactive]
-        public string Password { get; set; }
-        public ReactiveCommand<Unit,Unit> LoginCommand { get; set; }
-        public ReactiveCommand<string,Unit> TapLinkCommand { get; set; }
-        
-        public ICommand TabbedNavigationCommand { get; set; }
-        
         public LoginViewModel(IBitadService bitadService = null, IScreen screen = null)
         {
             _bitadService = bitadService ?? Locator.Current.GetService<IBitadService>();
             HostScreen = screen ?? Locator.Current.GetService<IScreen>();
 
-            User user = new User();
+            var user = new User();
 
-            
-            
+
             LoginCommand = ReactiveCommand.CreateFromTask(async () =>
             {
-                
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
                 {
                     await Application.Current.MainPage.DisplayToastAsync("Błąd połączenia");
                     return;
                 }
-                
+
                 var res = await _bitadService.Login(Username, Password);
                 if (res.user is null)
                 {
@@ -68,12 +50,12 @@ namespace Bitad2021.ViewModels
                                         await Application.Current.MainPage.DisplayToastAsync("Błąd połączenia");
                                         return;
                                     }
-                                    
+
                                     var reqResponse = await _bitadService.RequestActivationResend(Username);
-                                    
-                                    await Application.Current.MainPage.DisplayToastAsync(reqResponse ? 
-                                        "Sprawdź pocztę email" : "Coś poszło nie tak...");
-                                    
+
+                                    await Application.Current.MainPage.DisplayToastAsync(reqResponse
+                                        ? "Sprawdź pocztę email"
+                                        : "Coś poszło nie tak...");
                                 });
                             break;
                         case HttpStatusCode.NotFound:
@@ -87,29 +69,28 @@ namespace Bitad2021.ViewModels
                                         await Application.Current.MainPage.DisplayToastAsync("Błąd połączenia");
                                         return;
                                     }
-                                    
+
                                     var reqResponse = await _bitadService.IssuePasswordReset(Username);
-                                    
-                                    await Application.Current.MainPage.DisplayToastAsync(reqResponse ? 
-                                        "Sprawdź pocztę email" : "Coś poszło nie tak...");
-                                    
+
+                                    await Application.Current.MainPage.DisplayToastAsync(reqResponse
+                                        ? "Sprawdź pocztę email"
+                                        : "Coś poszło nie tak...");
                                 });
                             break;
                         default:
                             await Application.Current.MainPage.DisplayToastAsync("Nieznany błąd");
                             break;
                     }
-                    
+
                     return;
                 }
 
                 user = res.user;
-                
+
                 Preferences.Set("password", Password);
                 Preferences.Set("username", Username);
-                
+
                 TabbedNavigationCommand.Execute(null);
-                
             });
             LoginCommand.ThrownExceptions.Subscribe(ex => Debug.WriteLine(ex.Message));
 
@@ -117,13 +98,24 @@ namespace Bitad2021.ViewModels
             {
                 return HostScreen.Router.NavigateAndReset.Execute(new TabbedViewModel(user));
             });
-            
-            TapLinkCommand = ReactiveCommand.CreateFromTask(async (string url) =>
-            {
-                await Launcher.OpenAsync(url);
-            });
 
+            TapLinkCommand = ReactiveCommand.CreateFromTask(async (string url) => { await Launcher.OpenAsync(url); });
         }
+
+        [Reactive] public bool IsVisible { get; set; }
+
+
+        [Reactive] public string Username { get; set; }
+
+        [Reactive] public string Password { get; set; }
+
+        public ReactiveCommand<Unit, Unit> LoginCommand { get; set; }
+        public ReactiveCommand<string, Unit> TapLinkCommand { get; set; }
+
+        public ICommand TabbedNavigationCommand { get; set; }
+
+        public string UrlPathSegment { get; } = "Login Screen";
+        public IScreen HostScreen { get; }
 
         //TODO: Dodać różne rozmiary zdjecia loga
     }

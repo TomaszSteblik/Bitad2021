@@ -1,7 +1,4 @@
-﻿using System;
-using System.Globalization;
-using System.IdentityModel.Tokens.Jwt;
-using Bitad2021.Views;
+﻿using System.Globalization;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

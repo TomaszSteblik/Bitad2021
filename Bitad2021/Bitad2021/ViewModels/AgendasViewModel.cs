@@ -1,12 +1,5 @@
-﻿using System;
-using System.Diagnostics;
-using System.Reactive;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using Bitad2021.Data;
+﻿using Bitad2021.Data;
 using Bitad2021.Models;
-using DynamicData;
-using DynamicData.Binding;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Splat;
@@ -17,12 +10,6 @@ namespace Bitad2021.ViewModels
     {
         private readonly IBitadService _bitadService;
 
-        [Reactive]
-        public WorkshopsViewModel WorkshopsViewModel { get; set; }
-        
-        [Reactive]
-        public LecturesViewModel LecturesViewModel { get; set; }
-        
         public AgendasViewModel(ref User user, IBitadService bitadService = null)
         {
             _bitadService = bitadService ?? Locator.Current.GetService<IBitadService>();
@@ -30,7 +17,10 @@ namespace Bitad2021.ViewModels
             LecturesViewModel = new LecturesViewModel();
 
             WorkshopsViewModel = new WorkshopsViewModel(ref user);
-
         }
+
+        [Reactive] public WorkshopsViewModel WorkshopsViewModel { get; set; }
+
+        [Reactive] public LecturesViewModel LecturesViewModel { get; set; }
     }
 }

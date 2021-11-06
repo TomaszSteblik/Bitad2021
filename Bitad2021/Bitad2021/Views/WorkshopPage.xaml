@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xamForms:ReactiveContentPage x:TypeArguments="viewModels:WorkshopViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
+<xamForms:ReactiveContentPage x:TypeArguments="viewModels:WorkshopViewModel"
+                              xmlns="http://xamarin.com/schemas/2014/forms"
                               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                               xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
                               xmlns:viewModels="clr-namespace:Bitad2021.ViewModels;assembly=Bitad2021"
@@ -13,60 +14,60 @@
                 <StackLayout>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Frame Grid.Column="1" Padding="0"
-                               HasShadow="False" 
+                               HasShadow="False"
                                CornerRadius="60"
                                HeightRequest="120">
                             <Image Source="{Binding Workshop.Speaker.Picture}"
                                    HorizontalOptions="FillAndExpand"
                                    VerticalOptions="FillAndExpand"
-                                   Aspect="AspectFill"/>
+                                   Aspect="AspectFill" />
                         </Frame>
-                        <Image Grid.Column="1" 
+                        <Image Grid.Column="1"
                                Margin="85,85,0,0"
                                Source="info_icon.png">
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer
                                     Command="{Binding ViewSpeakerCommand}"
-                                    NumberOfTapsRequired="1"/>
+                                    NumberOfTapsRequired="1" />
                             </Image.GestureRecognizers>
                         </Image>
                     </Grid>
-                    
-                
+
+
                     <Label Text="{Binding Workshop.Title}"
                            FontAttributes="Bold"
                            FontSize="Title"
                            TextColor="#333"
-                           HorizontalOptions="CenterAndExpand"/>
-                    
+                           HorizontalOptions="CenterAndExpand" />
+
                     <StackLayout Spacing="0"
                                  HorizontalOptions="Center">
                         <Label FontSize="Subtitle"
                                HorizontalTextAlignment="Center">
                             <Label.Text>
                                 <MultiBinding StringFormat="{}{0:HH:mm} - {1:HH:mm}">
-                                    <Binding Path="Workshop.Start"/>
-                                    <Binding Path="Workshop.End"/>
+                                    <Binding Path="Workshop.Start" />
+                                    <Binding Path="Workshop.End" />
                                 </MultiBinding>
                             </Label.Text>
                         </Label>
-                        <Label Text="{Binding Workshop.Room}" FontSize="Subtitle" HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding Workshop.Room}" FontSize="Subtitle" HorizontalTextAlignment="Center" />
                         <Label FontSize="Subtitle"
                                HorizontalTextAlignment="Center">
                             <Label.Text>
                                 <MultiBinding StringFormat="{}{0}/{1}">
-                                    <Binding Path="Workshop.ParticipantsNumber"/>
-                                    <Binding Path="Workshop.MaxParticipants"/>
+                                    <Binding Path="Workshop.ParticipantsNumber" />
+                                    <Binding Path="Workshop.MaxParticipants" />
                                 </MultiBinding>
                             </Label.Text>
                         </Label>
                     </StackLayout>
-                    
+
                     <Label Text="{Binding Workshop.ExternalLink}"
                            FontAttributes="Bold"
                            FontSize="Subtitle"
@@ -74,28 +75,28 @@
                            HorizontalOptions="CenterAndExpand"
                            IsVisible="{Binding IsExternalLinkVisible}">
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding TapLinkCommand}" CommandParameter="{Binding Workshop.ExternalLink}"/>
+                            <TapGestureRecognizer Command="{Binding TapLinkCommand}"
+                                                  CommandParameter="{Binding Workshop.ExternalLink}" />
                         </Label.GestureRecognizers>
                     </Label>
-                    
+
                     <Label Text="{Binding Workshop.ShortInfo}"
                            FontAttributes="Bold"
                            FontSize="Subtitle"
                            TextColor="#990F02"
                            HorizontalOptions="CenterAndExpand"
-                           IsVisible="{Binding IsShortInfoVisible}">
-                    </Label>
-                    
+                           IsVisible="{Binding IsShortInfoVisible}" />
+
                     <Label Text="{Binding Workshop.Description}"
                            FontSize="Body"
                            TextColor="#333"
-                           LineBreakMode="WordWrap"/>
-                    
-                    
+                           LineBreakMode="WordWrap" />
+
+
                     <Button Text="Zapisz się" Command="{Binding SelectWorkshopCommand}"
                             Style="{StaticResource RoundButtonWithBorder}"
                             Margin="60,20,60,0"
-                            IsVisible="{Binding IsSelectWorkshopButtonVisible}"/>
+                            IsVisible="{Binding IsSelectWorkshopButtonVisible}" />
                 </StackLayout>
             </Frame>
         </ScrollView>

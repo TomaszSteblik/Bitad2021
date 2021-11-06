@@ -1,9 +1,6 @@
-﻿using System;
-using System.Net.Http;
-using System.Reflection;
+﻿using System.Reflection;
 using Bitad2021.Data;
 using Bitad2021.ViewModels;
-using Bitad2021.Views;
 using ReactiveUI;
 using ReactiveUI.XamForms;
 using Splat;
@@ -17,20 +14,20 @@ namespace Bitad2021
         public AppBootstrapper()
         {
             Router = new RoutingState();
-            
+
             Locator.CurrentMutable.RegisterConstant<IScreen>(this);
             var bitadService = new BitadServiceRest();
             Locator.CurrentMutable.RegisterConstant<IBitadService>(bitadService);
-            
+
             Locator.CurrentMutable.RegisterViewsForViewModels(Assembly.GetExecutingAssembly());
             //TODO: Splash screen for ios
             var hasPassword = Preferences.ContainsKey("password");
             var hasUsername = Preferences.ContainsKey("username");
             if (hasPassword && hasUsername)
             {
-                var password =  Preferences.Get("password","");
-                var username =  Preferences.Get("username","");
-                
+                var password = Preferences.Get("password", "");
+                var username = Preferences.Get("username", "");
+
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet)
                 {
                     Router.Navigate.Execute(new LoginViewModel());
@@ -38,7 +35,7 @@ namespace Bitad2021
                 }
 
                 var res = bitadService.LoginSync(username, password);
-                if(res is null)
+                if (res is null)
                     Router.Navigate.Execute(new LoginViewModel());
                 else
                     Router.NavigateAndReset.Execute(new TabbedViewModel(res));
@@ -47,17 +44,13 @@ namespace Bitad2021
             {
                 Router.NavigateAndReset.Execute(new LoginViewModel());
             }
-            
-            
-            
-            
         }
-        
+
+        public RoutingState Router { get; }
+
         public Page CreateMainPage()
         {
             return new RoutedViewHost();
         }
-
-        public RoutingState Router { get; }
     }
 }
