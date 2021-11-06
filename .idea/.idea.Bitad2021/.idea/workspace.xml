@@ -18,56 +18,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb1bb82e-82b3-4fec-8eac-dd79f385b9f0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Bitad2021/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Bitad2021/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/Bitad2021/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Bitad2021/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/Bitad2021/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Bitad2021/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Bitad2021.Android.csproj.user" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Bitad2021.Android.csproj.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/MainActivity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/MainActivity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Properties/AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Properties/AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/SplashActivity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/SplashActivity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021.iOS/AppDelegate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021.iOS/AppDelegate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021.iOS/Main.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021.iOS/Main.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021.iOS/Properties/AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021.iOS/Properties/AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/App.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/App.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/App.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/AppBootstrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/AppBootstrapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/BitadServiceRest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/BitadServiceRest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/IBitadService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/IBitadService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/Agenda.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/Agenda.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/QrCodeResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/QrCodeResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/Speaker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Models/Speaker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/AgendasViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/AgendasViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/LectureViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/LectureViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/LecturesViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/LecturesViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/LoginViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/LoginViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/QrScannerViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/QrScannerViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/SettingsViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/SettingsViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/SpeakerViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/SpeakerViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/TabbedViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/TabbedViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/WorkshopViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/WorkshopViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/WorkshopsViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/WorkshopsViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/AgendasPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/AgendasPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/AgendasPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/AgendasPage.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturePage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturePage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturePage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturePage.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturesPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturesPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturesPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturesPage.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LoginPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LoginPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LoginPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LoginPage.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/QrScannerPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/QrScannerPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/QrScannerPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/QrScannerPage.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/SettingsPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/SettingsPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/SettingsPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/SettingsPage.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/SpeakerPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/SpeakerPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/SpeakerPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/SpeakerPage.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/TabbedPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/TabbedPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/TabbedPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/TabbedPage.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/WorkshopPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/WorkshopPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/WorkshopPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/WorkshopPage.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/WorkshopsPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/WorkshopsPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/WorkshopsPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/WorkshopsPage.xaml.cs" afterDir="false" />
-    </list>
+    <list default="true" id="cb1bb82e-82b3-4fec-8eac-dd79f385b9f0" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -154,12 +105,12 @@
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/WorkshopPage.xaml" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/IBitadService.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/BitadServiceRest.cs" />
-      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/WorkshopViewModel.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/WorkshopsPage.xaml" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/SettingsPage.xaml" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/SettingsViewModel.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/SettingsPage.xaml.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/WorkshopsViewModel.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/WorkshopViewModel.cs" />
     </changedPaths>
   </component>
   <component name="InvalidFacetManager">
@@ -322,7 +273,7 @@
       <workItem from="1636193267979" duration="110000" />
       <workItem from="1636193522609" duration="1769000" />
       <workItem from="1636195383072" duration="1302000" />
-      <workItem from="1636197020629" duration="884000" />
+      <workItem from="1636197020629" duration="1315000" />
     </task>
     <servers />
   </component>

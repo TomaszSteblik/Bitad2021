@@ -53,6 +53,12 @@ namespace Bitad2021.Views
                         SnackBarAnchor.DisplayToastAsync("Błąd autoryzacji");
                         break;
                     case HttpStatusCode.NoContent:
+                        SnackBarAnchor.DisplayToastAsync("Nie możesz teraz użyć tego kodu");
+                        break;
+                    case HttpStatusCode.Forbidden:
+                        SnackBarAnchor.DisplayToastAsync("Potwierdź swoją obecność");
+                        break;
+                    case HttpStatusCode.NotFound:
                         SnackBarAnchor.DisplayToastAsync("Błędny kod");
                         break;
                     default:
