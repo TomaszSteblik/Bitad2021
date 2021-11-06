@@ -16,7 +16,7 @@
     <views:QrScannerPage Title="Gra QR"
                          BindingContext="{Binding QrScannerViewModel}"
                          IconImageSource="qr_icon.png" />
-    <views:SettingsPage Title="Ustawienia"
+    <views:SettingsPage Title="Informacje"
                         BindingContext="{Binding SettingsViewModel}"
                         IconImageSource="settings_icon.png" />
 
