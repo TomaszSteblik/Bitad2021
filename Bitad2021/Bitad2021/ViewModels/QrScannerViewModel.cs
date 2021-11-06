@@ -65,6 +65,9 @@ namespace Bitad2021.ViewModels
 
                 await Task.Delay(5000);
                 IsAnalyzing = true;
+
+                if (response.code == HttpStatusCode.Unauthorized)
+                    LogoutCommand.Execute();
             });
         }
 
