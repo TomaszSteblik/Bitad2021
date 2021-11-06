@@ -161,11 +161,13 @@ namespace Bitad2021.Data
             parameters["code"] = qrCode;
 
             var res = await _httpClient.PostAsync("/QrCodeRedeem/RedeemQrCode", new FormUrlEncodedContent(parameters));
+            
+            Token = res.Headers.GetValues("authtoken").FirstOrDefault();
 
             if (!res.IsSuccessStatusCode)
                 return (null, res.StatusCode);
 
-            Token = res.Headers.GetValues("authtoken").FirstOrDefault();
+            
 
             var resJson = await res.Content.ReadAsStringAsync();
 
