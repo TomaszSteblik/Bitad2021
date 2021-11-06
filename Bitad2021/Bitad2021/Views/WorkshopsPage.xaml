@@ -19,7 +19,7 @@
                     <DataTemplate x:DataType="models:Workshop">  
                         <ViewCell>
                             <StackLayout Padding="0,0,0,10">
-                                <Frame HasShadow="True"
+                                <Frame HasShadow="False"
                                    BackgroundColor="White"
                                    Margin="20 ,10, 20, 0" 
                                    Padding="20,20,20,20">
