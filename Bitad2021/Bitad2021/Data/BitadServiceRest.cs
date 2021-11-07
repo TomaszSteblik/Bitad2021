@@ -22,8 +22,8 @@ namespace Bitad2021.Data
                 //TODO: TAKE ADDRESS OUT TO ENV OR SOME JSON
                 //BaseAddress = new Uri("http://10.0.2.2:8080")
                 //BaseAddress = new Uri("http://192.168.0.101:8080")
-                BaseAddress = new Uri("http://212.106.184.93:8080")
-                //BaseAddress = new Uri("https://bitad.ath.bielsko.pl:8080")
+                //BaseAddress = new Uri("http://212.106.184.93:8080")
+                BaseAddress = new Uri("https://bitad.ath.bielsko.pl:8080")
             };
 
             Token = "";
@@ -105,10 +105,11 @@ namespace Bitad2021.Data
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
             var res = await _httpClient.GetAsync("/User/GetUser");
 
+            Token = res.Headers.GetValues("authtoken").FirstOrDefault();
+
             if (!res.IsSuccessStatusCode)
                 return null;
 
-            Token = res.Headers.GetValues("authtoken").FirstOrDefault();
 
             var resJson = await res.Content.ReadAsStringAsync();
 

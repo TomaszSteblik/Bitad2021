@@ -30,7 +30,7 @@
                 <Label.GestureRecognizers>
                     <!--TODO: NA PRODZIE ZMIENIC TUTAJ TEZ -->
                     <TapGestureRecognizer Command="{Binding TapLinkCommand}"
-                                          CommandParameter="http://212.106.184.93/registration" />
+                                          CommandParameter="https://bitad.ath.bielsko.pl/registration" />
                 </Label.GestureRecognizers>
             </Label>
 

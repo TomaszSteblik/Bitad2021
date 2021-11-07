@@ -51,7 +51,9 @@
                                             <Label
                                                 Text="{Binding Title}"
                                                 FontAttributes="Bold"
-                                                TextColor="#333" />
+                                                TextColor="#333" 
+                                                MaxLines="2"
+                                                LineBreakMode="TailTruncation"/>
                                             <!-- TODO: Make this red if full -->
                                             <Label FontSize="Micro"
                                                    FontAttributes="Italic"
