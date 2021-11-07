@@ -20,10 +20,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cb1bb82e-82b3-4fec-8eac-dd79f385b9f0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Bitad2021/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Bitad2021/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/BitadServiceRest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/BitadServiceRest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturesPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturesPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LoginPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LoginPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/WorkshopsPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/WorkshopsPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Properties/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Properties/AndroidManifest.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +86,6 @@
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Resources/drawable/splash_screen.xml" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/RegisterViewModel.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/SplashActivity.cs" />
-      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Properties/AndroidManifest.xml" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/ViewModels/LecturesViewModel.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/TabbedPage.xaml.cs" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/QrScannerPage.xaml" />
@@ -117,6 +113,7 @@
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/LecturesPage.xaml" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Views/WorkshopsPage.xaml" />
       <option value="$PROJECT_DIR$/Bitad2021/Bitad2021/Data/BitadServiceRest.cs" />
+      <option value="$PROJECT_DIR$/Bitad2021/Bitad2021.Android/Properties/AndroidManifest.xml" />
     </changedPaths>
   </component>
   <component name="InvalidFacetManager">
@@ -282,7 +279,7 @@
       <workItem from="1636197020629" duration="1829000" />
       <workItem from="1636199218246" duration="4132000" />
       <workItem from="1636204936883" duration="1058000" />
-      <workItem from="1636299747963" duration="425000" />
+      <workItem from="1636299747963" duration="1454000" />
     </task>
     <servers />
   </component>
